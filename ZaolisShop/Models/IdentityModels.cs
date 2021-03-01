@@ -21,7 +21,7 @@ namespace ZaolisShop.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("zaolisShop", throwIfV1Schema: false)
         {
         }
 
