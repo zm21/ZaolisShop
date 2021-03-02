@@ -9,6 +9,9 @@ namespace ZaolisShop
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            
+
+            Helper.SeederDatabase.SeedData();
         }
     }
 }
