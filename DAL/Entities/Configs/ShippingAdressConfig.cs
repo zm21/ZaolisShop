@@ -7,7 +7,7 @@ namespace DAL.EF
     {
         public ShippingAdressConfig()
         {
-            this.HasRequired(u => u.UserAdditionalInfo).WithMany(s => s.ShippingAdresses).HasForeignKey(r => r.UserAdditionalInfoId).WillCascadeOnDelete(true); ;
+            this.HasRequired(u => u.UserAdditionalInfo).WithMany(s => s.ShippingAdresses).HasForeignKey(r => r.UserAdditionalInfoId).WillCascadeOnDelete(false); ;
         }
     }
 
