@@ -11,7 +11,7 @@ namespace ZaolisShop
             ConfigureAuth(app);
             
 
-            Helper.SeederDatabase.SeedData();
+            //Helper.SeederDatabase.SeedData();
         }
     }
 }
