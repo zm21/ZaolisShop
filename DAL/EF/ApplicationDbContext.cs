@@ -4,7 +4,6 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,22 +48,6 @@ namespace DAL.EF
         {
             modelBuilder.Configurations.Add(new ShippingAdressConfig());
             modelBuilder.Configurations.Add(new UserInfoConfig());
-        }
-    }
-
-    public class ShippingAdressConfig:EntityTypeConfiguration<ShippingAdress>
-    {
-        public ShippingAdressConfig()
-        {
-            this.HasRequired(u => u.UserAdditionalInfo).WithMany(s => s.ShippingAdresses).HasForeignKey(r => r.UserAdditionalInfoId).WillCascadeOnDelete(true); ;
-        }
-    }
-
-    public class UserInfoConfig : EntityTypeConfiguration<UserAdditionalInfo>
-    {
-        public UserInfoConfig()
-        {
-            this.HasMany(u => u.ShippingAdresses).WithRequired(s => s.UserAdditionalInfo).WillCascadeOnDelete(true);
         }
     }
 
