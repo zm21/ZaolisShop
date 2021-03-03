@@ -41,10 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BLLClass.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CartDTO.cs" />
     <Compile Include="Models\CategoryDTO.cs" />
     <Compile Include="Models\ImageDTO.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OrderDTO.cs" />
     <Compile Include="Models\ProductDTO.cs" />
     <Compile Include="Models\ProductInfoDTO.cs" />

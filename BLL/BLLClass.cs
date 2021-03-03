@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class Class1
+    public interface IBllClass
+    {
+        
+    }
+    public class BLLClass
     {
     }
 }

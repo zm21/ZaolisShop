@@ -5,18 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 
-namespace DAL.Entities
+namespace BLL.Models
 {
-    [DataContract]
-    public class Cart
+    public class CartDTO
     {
-        [DataMember]
         public int Id { get; set; }
 
-        [DataMember]
-        public virtual ICollection<Product> Products { get; set; }
-
-        [DataMember]
         public string UserAdditionalInfoId { get; set; }
 
     }
