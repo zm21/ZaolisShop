@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/ZaolisShop/layoutCSS")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jQuery")
+    @Scripts.Render("~/bundles/ZaolisShop/js")
+
+</head>
+<body>
+
+    <nav class="navbar top-nav navbar-expand-md myMenu">
+        <button class="navbar-toggler" style="color: white;" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2 ">
+            <ul class="navbar-nav mr-auto tesla-list">
+            </ul>
+        </div>
+        <div class="top-nav navbar-collapse myMenu collapse" id="navbarNav">
+            <ul class="top-ul">
+                <li class="top-li">
+                    <a class="link" href="#">
+                        HOME
+                    </a>
+                    <hr>
+                </li>
+                <li class="top-li">
+                    <a class="link" href="#">
+                        ABOUT
+                    </a>
+                    <hr>
+                </li>
+                <li class="dropdown menu-large">
+                    <a href="#" class="dropdown-toggle link" data-toggle="dropdown">SHOP</a>
+                    <ul class="dropdown-menu megamenu row">
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">Categories</li>
+                                <li><a href="#">Basic example</a></li>
+                                <li><a href="#">Sizing</a></li>
+                                <li><a href="#">Checkboxes and radio addons</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Navs</li>
+                                <li><a href="#">Tabs</a></li>
+                                <li><a href="#">Pills</a></li>
+                                <li><a href="#">Justified</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2 " id="navbarNav">
+        </div>
+    </nav>
+
+
+    <div class="body-content">
+        @RenderBody()
+        <hr />
+    </div>
+
+    <footer>
+        <nav class="footer-inner">
+            <section class="footer-item">
+                <a class="header-footer" href="register.html">Zaolis</a>
+
+                <h2 class="footer-h2">Course work<br>on ASP.NET<br><i class="fab fa-js-square fa-3x"></i></h2>
+            </section>
+            <section class="footer-item">
+                <h3 class="footer-h3 header-footer">Categories</h3>
+                <ul class="footer-ul">
+                    <li class="link-footer footer-li"><a class="footer-a" href="#">T-Shirts</a></li>
+                    <li class="link-footer footer-li"><a class="footer-a" href="#">Shirts</a></li>
+                    <li class="link-footer footer-li"><a class="footer-a" href="#">Hoodies</a></li>
+                    <li class="link-footer footer-li"><a class="footer-a" href="#">Jackets</a></li>
+                </ul>
+            </section>
+
+            <section class="footer-item">
+                <h3 class="footer-h3 header-footer">Visit</h3>
+                <a class="footer-address footer-span">Soborna 16</a>
+                <br>
+                <a class="footer-address">Rivne, Rivnens'ka oblast', Ukraine 33000</a>
+
+                <h3 class="footer-h3 header-footer">New Business</h3>
+                <p><a class="footer-address">zaolisproject@gmail.com</a></p>
+            </section>
+
+            <section class="footer-item">
+                <h3 class="footer-h3 header-footer">New Business</h3>
+                <p><a class="footer-address">zaolisproject@gmail.com</a></p>
+            </section>
+
+            <section class="footer-item links">
+                <h3 class="footer-h3 header-footer">Follow</h3>
+                <a class="footer-a" href="https://www.instagram.com/the_oleksiychuk/" style="margin: 5px;"><i class="fab fa-instagram fa-2x"></i></a>
+                <a class="footer-a" href="https://twitter.com/bohdan_islamov" style="margin: 5px;"><i class="fab fa-twitter fa-2x"></i></a>
+                <a class="footer-a" href="https://t.me/mfive21" style="margin: 5px;"><i class="fab fa-telegram fa-2x"></i></a>
+            </section>
+        </nav>
+
+        <section class="footer-item">
+            <h3 class="footer-h3"></h3>
+            <ul class="footer-ul">
+                <li><i class="fab fa-cc-visa fa-2x" style="color: lightgray;"></i> <i class="fab fa-cc-amex fa-2x" style="color: lightgray;"></i></li>
+                <li><i class="fab fa-cc-paypal fa-2x" style="color: lightgray;"></i> <i class="fab fa-cc-jcb fa-2x" style="color: lightgray;"></i></li>
+                <li><i class="fab fa-cc-mastercard fa-2x" style="color: lightgray;"></i> <i class="fab fa-cc-stripe fa-2x" style="color: lightgray;"></i></li>
+                <li><i class="fab fa-cc-apple-pay fa-2x" style="color: lightgray;"></i> <i class="fab fa-cc-discover fa-2x" style="color: lightgray;"></i></li>
+                <li><i class="fab fa-cc-amazon-pay fa-2x" style="color: lightgray;"></i> <i class="fab fa-cc-diners-club fa-2x" style="color: lightgray;"></i></li>
+            </ul>
+        </section>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
