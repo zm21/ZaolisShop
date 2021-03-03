@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZaolisShop", "ZaolisShop\Za
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zaolis_DAL", "DAL\Zaolis_DAL.csproj", "{8B1B89B6-8D4D-445F-BAAA-D78203C4E8C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{69564DCD-E53F-450C-B313-2C5FBA2D58DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "BLL\DTO.csproj", "{69564DCD-E53F-450C-B313-2C5FBA2D58DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
