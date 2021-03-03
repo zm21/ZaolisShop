@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateModels\CategoryCreateDTO.cs" />
+    <Compile Include="CreateModels\ImageCreateDTO.cs" />
+    <Compile Include="CreateModels\OrderCreateDTO.cs" />
+    <Compile Include="CreateModels\ProductCreateDTO.cs" />
     <Compile Include="Models\CartDTO.cs" />
     <Compile Include="Models\CategoryDTO.cs" />
     <Compile Include="Models\ImageDTO.cs" />
