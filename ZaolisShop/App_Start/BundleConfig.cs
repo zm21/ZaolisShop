@@ -38,6 +38,7 @@ namespace ZaolisShop
             bundles.Add(new StyleBundle("~/Content/ZaolisShop/layoutCSS").Include(
                      "~/Content/ZaolisShop/NavMenu.css",
                      "~/Content/ZaolisShop/ZaolisFooter.css",
+                     "~/Content/ZaolisShop/ZaolisInput.css",
                      "~/url/https://use.fontawesome.com/releases/v5.0.13/css/all.css"));
 
             bundles.Add(new StyleBundle("~/Content/ZaolisShop/SignInUp").Include(
