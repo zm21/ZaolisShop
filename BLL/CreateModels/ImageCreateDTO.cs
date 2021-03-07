@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.CreateModels
+namespace DTO.CreateModels
 {
-    class ImageCreateDTO
+    public class ImageCreateDTO
     {
         public string Name { get; set; }
     }

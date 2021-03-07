@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.CreateModels
+namespace DTO.CreateModels
 {
-    class OrderCreateDTO
+    public class OrderCreateDTO
     {
         public int ShippingAdressId { get; set; }
         public string DateOfOrder { get; set; }
