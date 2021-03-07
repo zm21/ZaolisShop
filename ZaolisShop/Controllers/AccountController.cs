@@ -82,7 +82,16 @@ namespace ZaolisShop.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    var user = UserManager.FindByEmail(model.Email);
+                    var roles = UserManager.GetRoles(user.Id);
+                    if (roles.FirstOrDefault(r => r == "Admin") != null)
+                    {
+                        return RedirectToAction("Dashboard", "AdminPanel", new { area = "Admin" });
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
