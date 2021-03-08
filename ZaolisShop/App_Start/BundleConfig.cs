@@ -22,9 +22,29 @@ namespace ZaolisShop
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jQuery").Include(
+                   "~/Scripts/jquery-3.4.1.js"));
+
+
+            bundles.Add(new ScriptBundle("~/bundles/ZaolisShop/js").Include(
+                     "~/Scripts/ZaolisShop/NavMenu.js"));
+
+
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/ZaolisShop/layoutCSS").Include(
+                     "~/Content/ZaolisShop/NavMenu.css",
+                     "~/Content/ZaolisShop/ZaolisFooter.css",
+                     "~/Content/ZaolisShop/ZaolisInput.css",
+                     "~/url/https://use.fontawesome.com/releases/v5.0.13/css/all.css"));
+
+            bundles.Add(new StyleBundle("~/Content/ZaolisShop/SignInUp").Include(
+                    "~/Content/ZaolisShop/SignInUp.css"));
+
+
         }
     }
 }
