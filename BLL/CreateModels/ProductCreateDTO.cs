@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DTO.CreateModels
+
+namespace BLL.CreateModels
 {
     public class ProductCreateDTO
     {

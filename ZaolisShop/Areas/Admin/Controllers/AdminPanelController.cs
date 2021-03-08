@@ -1,4 +1,5 @@
-﻿using DAL.EF;
+using System;
+using DAL.EF;
 using DAL.Entities;
 using DAL.Interfaces;
 using DAL.Repositories;
@@ -13,6 +14,7 @@ namespace ZaolisShop.Areas.Admin.Controllers
 {
     public class AdminPanelController : Controller
     {
+
         private IUnitOfWork unitOfWork;
 
         public AdminPanelController()
@@ -24,6 +26,8 @@ namespace ZaolisShop.Areas.Admin.Controllers
         {
             return View();
         }
+
+
 
         public ActionResult CategoryList()
         {
@@ -48,5 +52,6 @@ namespace ZaolisShop.Areas.Admin.Controllers
             unitOfWork.Save();
             return RedirectToAction("Index", "Home");
         }
+        
     }
 }
