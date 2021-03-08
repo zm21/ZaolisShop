@@ -7,8 +7,8 @@
     <ProjectGuid>{69564DCD-E53F-450C-B313-2C5FBA2D58DF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BLL</RootNamespace>
-    <AssemblyName>BLL</AssemblyName>
+    <RootNamespace>DTO</RootNamespace>
+    <AssemblyName>DTO</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -30,6 +30,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -41,6 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateModels\CategoryCreateDTO.cs" />
+    <Compile Include="CreateModels\ImageCreateDTO.cs" />
+    <Compile Include="CreateModels\OrderCreateDTO.cs" />
+    <Compile Include="CreateModels\ProductCreateDTO.cs" />
     <Compile Include="Models\CartDTO.cs" />
     <Compile Include="Models\CategoryDTO.cs" />
     <Compile Include="Models\ImageDTO.cs" />

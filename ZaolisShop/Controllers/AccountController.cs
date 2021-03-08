@@ -18,9 +18,11 @@ namespace ZaolisShop.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext _context;
 
         public AccountController()
         {
+            _context = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -80,7 +82,16 @@ namespace ZaolisShop.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    var user = UserManager.FindByEmail(model.Email);
+                    var roles = UserManager.GetRoles(user.Id);
+                    if (roles.FirstOrDefault(r => r == "Admin") != null)
+                    {
+                        return RedirectToAction("Dashboard", "AdminPanel", new { area = "Admin" });
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -157,13 +168,21 @@ namespace ZaolisShop.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
+                    _context.UserAdditionalInfos.Add(new DAL.Entities.UserAdditionalInfo
+                    {
+                        FirstName = model.FirstName,
+                        LastName = model.LastName,
+                        Id = user.Id
+                    });
+
+                    UserManager.AddToRole(user.Id, "Shopper");
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);

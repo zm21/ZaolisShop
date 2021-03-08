@@ -88,9 +88,9 @@
     <Compile Include="Entities\UserAdditionalInfo.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
-    <Compile Include="Migrations\202103021903013_All_tables.cs" />
-    <Compile Include="Migrations\202103021903013_All_tables.Designer.cs">
-      <DependentUpon>202103021903013_All_tables.cs</DependentUpon>
+    <Compile Include="Migrations\202103031752072_configs.cs" />
+    <Compile Include="Migrations\202103031752072_configs.Designer.cs">
+      <DependentUpon>202103031752072_configs.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,8 +102,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202103021903013_All_tables.resx">
-      <DependentUpon>202103021903013_All_tables.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103031752072_configs.resx">
+      <DependentUpon>202103031752072_configs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

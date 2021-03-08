@@ -7,7 +7,7 @@ namespace DAL.EF
     {
         public UserInfoConfig()
         {
-            this.HasMany(u => u.ShippingAdresses).WithRequired(s => s.UserAdditionalInfo).WillCascadeOnDelete(true);
+            this.HasMany(u => u.ShippingAdresses).WithRequired(s => s.UserAdditionalInfo).WillCascadeOnDelete(false);
         }
     }
 
