@@ -1,4 +1,9 @@
-﻿.hidden {
+﻿body {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.hidden {
     display: inline;
 }
 
@@ -30,27 +35,23 @@ label, input {
     cursor: pointer !important;
 }
 
-
+.ml-auto {
+    margin-bottom: 0px;
+}
 
 .top-nav {
-    display: flex;
-    flex-wrap: wrap;
     background-color: black;
     justify-content: space-between;
-    padding-bottom: 0px;
-    padding-top: 10px;
+    padding: 0px;
 }
 
 .top-ul {
     list-style: none;
     display: flex;
     align-items: center;
-    margin-bottom: -20px;
-    margin-top: -20px;
 }
 
 .top-li {
-    margin-top: 15px;
     margin-left: 2em;
 }
 
@@ -112,11 +113,9 @@ label, input {
 }
 
 
+
 .menu-large {
     position: static !important;
-    margin-top: -3px;
-    margin-bottom: 15px;
-    margin-left: 2em;
 }
 
 .megamenu {
@@ -195,4 +194,8 @@ label, input {
 
 .dropdown-link {
     color: black !important;
+}
+
+.navbar {
+    list-style: none;
 }

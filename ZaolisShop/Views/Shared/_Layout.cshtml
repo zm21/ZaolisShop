@@ -15,60 +15,84 @@
 <body>
 
     <nav class="navbar top-nav navbar-expand-md myMenu">
-        <button class="navbar-toggler" style="color: white;" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2 ">
-            <ul class="navbar-nav mr-auto tesla-list">
+        <div class="d-flex justify-content-end">
+            <button class="navbar-toggler" style="color: white;" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="navbar ml-auto">
+                <li class="top-li">
+                    <a href="/Account/Login">
+                        <i class="far fa-user"></i>
+                    </a>
+                </li>
+                <li class="top-li">
+                    <a href="#">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </li>
             </ul>
         </div>
-        <div class="top-nav navbar-collapse myMenu collapse" id="navbarNav">
-            <ul class="top-ul">
+        <div class="navbar-collapse collapse" id="navbarNav">
+            <ul class="navbar-nav">
                 <li class="top-li">
                     <a class="link" href="#">
                         HOME
                     </a>
-                    <hr>
+
                 </li>
                 <li class="top-li">
                     <a class="link" href="#">
                         ABOUT
                     </a>
-                    <hr>
+
                 </li>
-                @if (User.IsInRole("Admin"))
-                {
-                    <li class="top-li">
-                        <a class="link" href="/Admin/AdminPanel/Dashboard">
-                            ABOUT
-                        </a>
-                        <hr>
-                    </li>
-                }
-                <li class="dropdown menu-large">
+                <li class="dropdown menu-large top-li">
                     <a href="#" class="dropdown-toggle link" data-toggle="dropdown">SHOP</a>
                     <ul class="dropdown-menu megamenu row">
                         <li class="col-sm-3">
                             <ul>
                                 <li class="dropdown-header">Categories</li>
-                                <li><a href="#">Basic example</a></li>
-                                <li><a href="#">Sizing</a></li>
-                                <li><a href="#">Checkboxes and radio addons</a></li>
-                                <li class="divider"></li>
-                                <li class="dropdown-header">Navs</li>
-                                <li><a href="#">Tabs</a></li>
-                                <li><a href="#">Pills</a></li>
-                                <li><a href="#">Justified</a></li>
+                                <li><a href="#">T-Shirts</a></li>
+                                <li><a href="#">Shirts</a></li>
+                                <li><a href="#">Hoodies</a></li>
+
                             </ul>
                         </li>
                     </ul>
                 </li>
+                @if (User.IsInRole("Admin"))
+                {
+                    <li class="top-li">
+                        <a class="link" href="/Admin/AdminPanel/Dashboard">
+                            ADMIN&nbsp;PANEL
+                        </a>
+                    </li>
+                }
             </ul>
         </div>
-        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2 " id="navbarNav">
+        <div class=" navbar-collapse  w-100 order-1 order-md-0 dual-collapse2 ">
+
         </div>
+        <!--<div class="navbar w-100">-->
+            @*<ul class="navbar ml-auto">
+                <li class="top-li">
+                    <a href="#">
+                        <i class="far fa-user"></i>
+                    </a>
+                </li>
+                <li class="top-li">
+                    <a href="#">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </li>
+            </ul>*@
+        <!--</div>-->
     </nav>
+
+
+
+ 
 
 
     @*<div class="navbar navbar-inverse navbar-fixed-top">
@@ -122,9 +146,6 @@
                 <a class="footer-address footer-span">Soborna 16</a>
                 <br>
                 <a class="footer-address">Rivne, Rivnens'ka oblast', Ukraine 33000</a>
-
-                <h3 class="footer-h3 header-footer">New Business</h3>
-                <p><a class="footer-address">zaolisproject@gmail.com</a></p>
             </section>
 
             <section class="footer-item">

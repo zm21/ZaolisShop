@@ -6,7 +6,7 @@
 @Styles.Render("~/Content/ZaolisShop/SignInUp")
 
 
-<div class="container">
+<div class="container d-flex justify-content-center">
 
     @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal register-form", role = "form" }))
     {
@@ -14,7 +14,11 @@
         <h4>Create a new account.</h4>
         <hr />
         @*@Html.ValidationSummary("", new { @class = "text-danger" })*@
-        <div class="group">
+
+
+           <div class="row">
+
+        <div class="group col-lg-12 col-md-12 col-sm-12">
             @Html.TextBoxFor(m => m.Email, new { @class = "inp", required = "required" })
             <span class="highlight"></span>
             <span class="bar"></span>
@@ -22,7 +26,7 @@
         @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
         </div>
 
-        <div class="group">
+        <div class="group col-lg-12 col-md-12 col-sm-12">
             @Html.TextBoxFor(m => m.FirstName, new { @class = "inp", required = "required" })
             <span class="highlight"></span>
             <span class="bar"></span>
@@ -30,7 +34,7 @@
             @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
         </div>
 
-        <div class="group">
+        <div class="group col-lg-12 col-md-12 col-sm-12">
             @Html.TextBoxFor(m => m.LastName, new { @class = "inp", required = "required" })
             <span class="highlight"></span>
             <span class="bar"></span>
@@ -38,7 +42,7 @@
             @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
         </div>
 
-        <div class="group">
+        <div class="group col-lg-12 col-md-12 col-sm-12">
             @Html.PasswordFor(m => m.Password, new { @class = "inp", required = "required" })
             <span class="highlight"></span>
             <span class="bar"></span>
@@ -46,20 +50,21 @@
             @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
         </div>
 
-        <div class="group">
+        <div class="group col-lg-12 col-md-12 col-sm-12">
             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "inp", required = "required" })
             <span class="highlight"></span>
             <span class="bar"></span>
             <span class="sp">Confirm password</span>
             @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
-        </div>
-
-
+            </div>
         <button type="submit" class="button_base b03_skewed_slide_in" style="background-size: 0%">
             <div>REGISTER</div>
             <div></div>
             <div>REGISTER</div>
         </button>
+        </div>
+
+
 
 
 
