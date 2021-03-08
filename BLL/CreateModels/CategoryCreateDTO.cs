@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BLL.CreateModels
 {
-    class CategoryCreateDTO
+    public class CategoryCreateDTO
     {
         public string Name { get; set; }
     }

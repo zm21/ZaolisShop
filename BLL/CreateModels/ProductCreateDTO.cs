@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace BLL.CreateModels
 {
-    class ProductCreateDTO
+    public class ProductCreateDTO
     {
         public string Name { get; set; }
 
