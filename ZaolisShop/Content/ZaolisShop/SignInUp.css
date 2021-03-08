@@ -1,13 +1,15 @@
 ﻿
 .register-form {
     width: 35%;
-    margin-left: auto;
-    margin-right: auto;
     background-color: white;
     padding: 30px 50px;
+    margin-right: auto;
     margin-bottom: 150px;
 }
 
+.container{
+    
+}
 
 .button_base {
     margin: 0;
