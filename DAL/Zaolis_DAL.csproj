@@ -92,6 +92,10 @@
     <Compile Include="Migrations\202103031752072_configs.Designer.cs">
       <DependentUpon>202103031752072_configs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103091746253_category in product.cs" />
+    <Compile Include="Migrations\202103091746253_category in product.Designer.cs">
+      <DependentUpon>202103091746253_category in product.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GeneriRepository.cs" />
@@ -104,6 +108,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202103031752072_configs.resx">
       <DependentUpon>202103031752072_configs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103091746253_category in product.resx">
+      <DependentUpon>202103091746253_category in product.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
