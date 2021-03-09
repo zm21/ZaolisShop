@@ -36,7 +36,7 @@
         <div class="navbar-collapse collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="top-li">
-                    <a class="link" href="#">
+                    <a class="link" href="@Url.Action("Index", "Home", new { area = "" })">
                         HOME
                     </a>
 
@@ -64,7 +64,7 @@
                 @if (User.IsInRole("Admin"))
                 {
                     <li class="top-li">
-                        <a class="link" href="/Admin/AdminPanel/Dashboard">
+                        <a class="link" href="@Url.Action("Dashboard", "AdminPanel", new { area = "Admin" })">
                             ADMIN&nbsp;PANEL
                         </a>
                     </li>

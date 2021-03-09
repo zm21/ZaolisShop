@@ -1,24 +1,27 @@
-using System;
+using BLL.CreateModels;
+using BLL.Models;
 using DAL.EF;
 using DAL.Entities;
 using DAL.Interfaces;
 using DAL.Repositories;
-using DTO.CreateModels;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ZaolisShop.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminPanelController : Controller
     {
+        private ApplicationDbContext _context;
 
         private IUnitOfWork unitOfWork;
 
         public AdminPanelController()
         {
+
+            _context = new ApplicationDbContext();
+            unitOfWork = new UnitOfWork(_context);
+       
             unitOfWork = new UnitOfWork(new ApplicationDbContext());
         }
 
@@ -27,13 +30,6 @@ namespace ZaolisShop.Areas.Admin.Controllers
             return View();
         }
 
-
-
-        public ActionResult CategoryList()
-        {
-            var data = unitOfWork.CategoryRepository.Get();
-            return View(data);
-        }
 
         [HttpGet]
         public ActionResult CreateCategory()
@@ -44,14 +40,61 @@ namespace ZaolisShop.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult CreateCategory(CategoryCreateDTO model)
         {
-            unitOfWork.CategoryRepository.Create(new Category 
+            _context.Categories.Add(new DAL.Entities.Category
             {
-                Name = model.Name
+                Name=model.Name
             });
-
-            unitOfWork.Save();
-            return RedirectToAction("Index", "Home");
+            _context.SaveChanges();
+            return RedirectToAction("Dashboard", "AdminPanel");
         }
-        
+
+        [HttpGet]
+        public ActionResult CreateProduct()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateProduct(ProductCreateDTO model)
+        {
+            _context.Products.Add(new DAL.Entities.Product
+            {
+                Name = model.Name,
+                Description=model.Description,
+                Price=model.Price
+            });
+            _context.SaveChanges();
+            return RedirectToAction("Dashboard", "AdminPanel");
+        }
+
+        public ActionResult CategoryList()
+        {
+            var data = unitOfWork.CategoryRepository.Get().Select(c => new CategoryDTO
+            {
+                Id = c.Id,
+                Name = c.Name
+            });
+            return View(data);
+        }
+
+        [HttpGet]
+        public ActionResult CreateProductInfo()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateProductInfo(ProductInfoCreateDTO model)
+        {
+            _context.ProductInfos.Add(new DAL.Entities.ProductInfo
+            {
+                Color=model.Color,
+                Count=model.Count,
+                ProductId=model.ProductId,
+                Size=model.Size
+            });
+            _context.SaveChanges();
+            return RedirectToAction("Dashboard", "AdminPanel");
+        }  
     }
 }
