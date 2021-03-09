@@ -45,7 +45,7 @@ namespace ZaolisShop.Areas.Admin.Controllers
                 Name=model.Name
             });
             _context.SaveChanges();
-            return RedirectToAction("Dashboard", "AdminPanel");
+            return RedirectToAction("CategoryList", "AdminPanel");
         }
 
         public ActionResult CategoryList()
@@ -62,20 +62,25 @@ namespace ZaolisShop.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult CreateProduct()
         {
-            return View();
+            var model = new ProductCreateDTO();
+            model.Categories.AddRange(
+                unitOfWork.CategoryRepository.Get().Select(c => new SelectListItem { Text = c.Name, Value = c.Id.ToString() }));
+            return View(model);
         }
 
         [HttpPost]
         public ActionResult CreateProduct(ProductCreateDTO model)
         {
+            var category = unitOfWork.CategoryRepository.GetById(int.Parse(model.CategoryId));
             _context.Products.Add(new DAL.Entities.Product
             {
                 Name = model.Name,
                 Description=model.Description,
                 Price=model.Price,
+                CategoryId = category.Id
             });
             _context.SaveChanges();
-            return RedirectToAction("Dashboard", "AdminPanel");
+            return RedirectToAction("ProductList", "AdminPanel");
         }
 
         public ActionResult ProductList()

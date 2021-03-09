@@ -15,7 +15,7 @@
         color: white;
     }
 
-label, input {
+/*label,*/ input {
     display: none;
 }
 
@@ -89,11 +89,11 @@ label, input {
 
 @media screen and (max-width:600px) {
 
-    label {
+    /*label {
         display: inline;
         align-self: center;
         cursor: pointer;
-    }
+    }*/
 
     .top-ul {
         margin: 6em 0;
