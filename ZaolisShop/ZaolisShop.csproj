@@ -205,6 +205,7 @@
     <Content Include="Areas\Admin\Views\AdminPanel\CreateCategory.cshtml" />
     <Content Include="Areas\Admin\Views\AdminPanel\CreateProductInfo.cshtml" />
     <Content Include="Areas\Admin\Views\AdminPanel\ProductList.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminPanel\CreateProduct.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
