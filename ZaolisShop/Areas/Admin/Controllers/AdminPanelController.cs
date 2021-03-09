@@ -48,6 +48,17 @@ namespace ZaolisShop.Areas.Admin.Controllers
             return RedirectToAction("Dashboard", "AdminPanel");
         }
 
+        public ActionResult CategoryList()
+        {
+            var data = unitOfWork.CategoryRepository.Get().Select(c => new CategoryDTO
+            {
+                Id = c.Id,
+                Name = c.Name
+            });
+            return View(data);
+        }
+
+
         [HttpGet]
         public ActionResult CreateProduct()
         {
@@ -61,21 +72,26 @@ namespace ZaolisShop.Areas.Admin.Controllers
             {
                 Name = model.Name,
                 Description=model.Description,
-                Price=model.Price
+                Price=model.Price,
             });
             _context.SaveChanges();
             return RedirectToAction("Dashboard", "AdminPanel");
         }
 
-        public ActionResult CategoryList()
+        public ActionResult ProductList()
         {
-            var data = unitOfWork.CategoryRepository.Get().Select(c => new CategoryDTO
+            var data = unitOfWork.ProductRepository.Get().Select(c => new ProductDTO
             {
                 Id = c.Id,
-                Name = c.Name
+                Name = c.Name,
+                Price = c.Price,
+                Category = c.Category.Name,
+                CategoryId = c.CategoryId,
+                Description = c.Description
             });
             return View(data);
         }
+
 
         [HttpGet]
         public ActionResult CreateProductInfo()
@@ -95,6 +111,6 @@ namespace ZaolisShop.Areas.Admin.Controllers
             });
             _context.SaveChanges();
             return RedirectToAction("Dashboard", "AdminPanel");
-        }  
+        }
     }
 }

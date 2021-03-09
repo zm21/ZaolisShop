@@ -30,5 +30,9 @@ namespace DAL.Entities
         public virtual ICollection<Cart> Carts { get; set; }
 
         public virtual ICollection<ProductInfo> ProductInfos { get; set; }
+
+        public int CategoryId { get; set; }
+
+        public virtual Category Category { get; set; }
     }
 }
