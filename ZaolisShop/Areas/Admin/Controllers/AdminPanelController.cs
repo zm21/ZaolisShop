@@ -142,7 +142,7 @@ namespace ZaolisShop.Areas.Admin.Controllers
             {
                 ProductInfoCreateDTO model = new ProductInfoCreateDTO();
                 model.ProductId = id;
-                return View();
+                return View(model);
             }
             return RedirectToAction("ProductList", "AdminPanel");
         }
@@ -150,41 +150,45 @@ namespace ZaolisShop.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult CreateProductInfo(ProductInfoCreateDTO model, HttpPostedFileBase Img1, HttpPostedFileBase Img2)
         {
-            string fileName1 = Guid.NewGuid().ToString() + ".jpg";
-            string fileName2 = Guid.NewGuid().ToString() + ".jpg";
-            string image1 = Server.MapPath(Constants.ImageProductPath) + fileName1;
-            string image2 = Server.MapPath(Constants.ImageProductPath) + fileName1;
-            var enumDisplaySize = (SIZE)model.Size;
-            var productInfo = new ProductInfo
+            var product = unitOfWork.ProductRepository.GetById(model.ProductId);
+            if (product != null)
             {
-                Color = model.Color,
-                Count = model.Count,
-                ProductId = model.ProductId,
-                Size = enumDisplaySize.ToString()
-            };
-
-            unitOfWork.ProductInfoRepository.Create(productInfo);
-            unitOfWork.Save();
-            using (Bitmap img = new Bitmap(Img1.InputStream))
-            {
-                Bitmap saveImg = ImageWorker.CreateImage(img, 470, 705);
-                if (saveImg != null)
+                string fileName1 = Guid.NewGuid().ToString() + ".jpg";
+                string fileName2 = Guid.NewGuid().ToString() + ".jpg";
+                string image1 = Server.MapPath(Constants.ImageProductPath) + fileName1;
+                string image2 = Server.MapPath(Constants.ImageProductPath) + fileName2;
+                var enumDisplaySize = (SIZE)model.Size;
+                var productInfo = new ProductInfo
                 {
-                    saveImg.Save(image1, ImageFormat.Jpeg);
+                    Color = model.Color,
+                    Count = model.Count,
+                    ProductId = model.ProductId,
+                    Size = enumDisplaySize.ToString()
+                };
 
-                    unitOfWork.ImageRepository.Create(new DAL.Entities.Image { Name = fileName1, ProductInfoId = productInfo.Id });
-                    unitOfWork.Save();
+                unitOfWork.ProductInfoRepository.Create(productInfo);
+                unitOfWork.Save();
+                using (Bitmap img = new Bitmap(Img1.InputStream))
+                {
+                    Bitmap saveImg = ImageWorker.CreateImage(img, 470, 705);
+                    if (saveImg != null)
+                    {
+                        saveImg.Save(image1, ImageFormat.Jpeg);
+
+                        unitOfWork.ImageRepository.Create(new DAL.Entities.Image { Name = fileName1, ProductInfoId = productInfo.Id });
+                        unitOfWork.Save();
+                    }
                 }
-            }
-            using (Bitmap img = new Bitmap(Img2.InputStream))
-            {
-                Bitmap saveImg = ImageWorker.CreateImage(img, 470, 705);
-                if (saveImg != null)
+                using (Bitmap img = new Bitmap(Img2.InputStream))
                 {
-                    saveImg.Save(image2, ImageFormat.Jpeg);
+                    Bitmap saveImg = ImageWorker.CreateImage(img, 470, 705);
+                    if (saveImg != null)
+                    {
+                        saveImg.Save(image2, ImageFormat.Jpeg);
 
-                    unitOfWork.ImageRepository.Create(new DAL.Entities.Image { Name = fileName2, ProductInfoId = productInfo.Id });
-                    unitOfWork.Save();
+                        unitOfWork.ImageRepository.Create(new DAL.Entities.Image { Name = fileName2, ProductInfoId = productInfo.Id });
+                        unitOfWork.Save();
+                    }
                 }
             }
             return RedirectToAction("Dashboard", "AdminPanel");
