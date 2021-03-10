@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -178,6 +178,9 @@
     </Compile>
     <Compile Include="Helper\Constants.cs" />
     <Compile Include="Helper\ImageWorker.cs" />
+    <Compile Include="Helper\Payment.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Helper\SeederDatabase.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -191,6 +194,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\ZaolisShop\NavMenu.css" />
     <Content Include="Content\ZaolisShop\SignInUp.css" />
+    <Content Include="Content\ZaolisShop\Table.css" />
     <Content Include="Content\ZaolisShop\ZaolisFooter.css" />
     <Content Include="Content\ZaolisShop\ZaolisInput.css" />
     <Content Include="favicon.ico" />
@@ -209,6 +213,7 @@
     <Content Include="Areas\Admin\Views\AdminPanel\ProductList.cshtml" />
     <Content Include="Areas\Admin\Views\AdminPanel\CreateProduct.cshtml" />
     <Content Include="Areas\Admin\Views\AdminPanel\ProductInfoList.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminPanel\EditCategory.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

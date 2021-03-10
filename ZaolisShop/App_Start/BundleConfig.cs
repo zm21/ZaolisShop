@@ -46,6 +46,9 @@ namespace ZaolisShop
             bundles.Add(new StyleBundle("~/Content/ZaolisShop/SignInUp").Include(
                     "~/Content/ZaolisShop/SignInUp.css"));
 
+            bundles.Add(new StyleBundle("~/Content/ZaolisShop/Table").Include(
+                    "~/Content/ZaolisShop/Table.css"));
+
 
         }
     }
