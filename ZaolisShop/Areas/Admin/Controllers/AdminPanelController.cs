@@ -4,8 +4,13 @@ using DAL.EF;
 using DAL.Entities;
 using DAL.Interfaces;
 using DAL.Repositories;
+using System;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
+using ZaolisShop.Helper;
 
 namespace ZaolisShop.Areas.Admin.Controllers
 {
@@ -99,23 +104,74 @@ namespace ZaolisShop.Areas.Admin.Controllers
 
 
         [HttpGet]
-        public ActionResult CreateProductInfo()
+        public ActionResult CreateProductInfo(int id)
         {
-            return View();
+            var product = unitOfWork.ProductRepository.GetById(id);
+            if(product!=null)
+            {
+                ProductInfoCreateDTO model = new ProductInfoCreateDTO();
+                model.ProductId = id;
+                return View();
+            }
+            return RedirectToAction("ProductList", "AdminPanel");
         }
 
         [HttpPost]
-        public ActionResult CreateProductInfo(ProductInfoCreateDTO model)
+        public ActionResult CreateProductInfo(ProductInfoCreateDTO model, HttpPostedFileBase Img1, HttpPostedFileBase Img2)
         {
-            _context.ProductInfos.Add(new DAL.Entities.ProductInfo
+            string fileName1 = Guid.NewGuid().ToString() + ".jpg";
+            string fileName2 = Guid.NewGuid().ToString() + ".jpg";
+            string image1 = Server.MapPath(Constants.ImageProductPath) + fileName1;
+            string image2 = Server.MapPath(Constants.ImageProductPath) + fileName1;
+            var enumDisplaySize = (SIZE)model.Size;
+            var productInfo = new ProductInfo
             {
-                Color=model.Color,
-                Count=model.Count,
-                ProductId=model.ProductId,
-                Size=model.Size
-            });
-            _context.SaveChanges();
+                Color = model.Color,
+                Count = model.Count,
+                ProductId = model.ProductId,
+                Size = enumDisplaySize.ToString()
+            };
+
+            unitOfWork.ProductInfoRepository.Create(productInfo);
+            unitOfWork.Save();
+            using (Bitmap img = new Bitmap(Img1.InputStream))
+            {
+                Bitmap saveImg = ImageWorker.CreateImage(img, 470, 705);
+                if (saveImg != null)
+                {
+                    saveImg.Save(image1, ImageFormat.Jpeg);
+
+                    unitOfWork.ImageRepository.Create(new DAL.Entities.Image { Name = fileName1, ProductInfoId = productInfo.Id });
+                    unitOfWork.Save();
+                }
+            }
+            using (Bitmap img = new Bitmap(Img2.InputStream))
+            {
+                Bitmap saveImg = ImageWorker.CreateImage(img, 470, 705);
+                if (saveImg != null)
+                {
+                    saveImg.Save(image2, ImageFormat.Jpeg);
+
+                    unitOfWork.ImageRepository.Create(new DAL.Entities.Image { Name = fileName2, ProductInfoId = productInfo.Id });
+                    unitOfWork.Save();
+                }
+            }
             return RedirectToAction("Dashboard", "AdminPanel");
+        }
+
+        public ActionResult ProductInfoList()
+        {
+            var data = unitOfWork.ProductInfoRepository.Get().Select(c => new ProductInfoDTO
+            {
+                Id = c.Id,
+                Color = c.Color,
+                Count = c.Count,
+                ProductId = c.ProductId,
+                ProductName = c.Product.Name,
+                Size = c.Size,
+                Images = c.Images.Select(i => i.Name).ToList(),
+            });
+            return View(data);
         }
     }
 }
