@@ -29,6 +29,9 @@ namespace ZaolisShop
             bundles.Add(new ScriptBundle("~/bundles/ZaolisShop/js").Include(
                      "~/Scripts/ZaolisShop/NavMenu.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/ZaolisShop/AOSJS").Include(
+                    "~/url/https://unpkg.com/aos@2.3.1/dist/aos.js"));
+
 
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
@@ -48,6 +51,14 @@ namespace ZaolisShop
 
             bundles.Add(new StyleBundle("~/Content/ZaolisShop/Table").Include(
                     "~/Content/ZaolisShop/Table.css"));
+
+            bundles.Add(new StyleBundle("~/Content/ZaolisShop/Home").Include(
+                    "~/Content/ZaolisShop/HomePage.css",
+                    "~/Content/ZaolisShop/ProductCard.css"));
+
+            bundles.Add(new StyleBundle("~/Content/ZaolisShop/AOS").Include(
+                    "~/url/https://unpkg.com/aos@2.3.1/dist/aos.css"));
+
 
 
         }
