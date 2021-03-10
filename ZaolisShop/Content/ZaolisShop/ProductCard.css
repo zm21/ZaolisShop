@@ -1,0 +1,41 @@
+﻿.card-margin {
+    padding: 50px;
+}
+
+.div-link {
+    text-align: center;
+}
+
+    .div-link a {
+        text-decoration: none !important;
+        color: black;
+    }
+
+.price {
+    position: absolute;
+}
+
+.image-1 {
+    width: 74%;
+    height: 74%;
+    position: absolute;
+}
+
+.image-2 {
+    width: 100%;
+    height: 100%;
+}
+
+.div-link:hover .image-1 {
+    color: black !important;
+    visibility: hidden;
+}
+
+.div-link:hover .image-2 {
+    color: black !important;
+    visibility: visible;
+}
+
+.div-link:hover a {
+    color: black !important;
+}
