@@ -1,14 +1,13 @@
 ﻿@model IEnumerable<BLL.Models.CategoryDTO>
+@Styles.Render("~/Content/ZaolisShop/Table")
 
 @{
-    ViewBag.Title = "CategoryList";
+    ViewBag.Title = "Categories List";
 }
-
-<h2>CategoryList</h2>
 
 <p>
     <div>
-        <button class="btn-1">@Html.ActionLink("Create New", "CreateCategory")</button>
+        @Html.ActionLink("Create New Category", "CreateCategory", "CreateCategory" , new { @class = "btn btn-info" })
     </div>
 </p>
 <table class="table">
@@ -18,7 +17,6 @@
         </th>
         <th></th>
     </tr>
-
     @foreach (var item in Model)
     {
         <tr>
@@ -26,11 +24,10 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                @Html.ActionLink("Edit", "EditCategory", new { id = item.Id }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-info" })
             </td>
         </tr>
     }
-
 </table>
+

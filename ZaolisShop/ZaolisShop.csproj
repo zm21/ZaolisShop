@@ -192,6 +192,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\ZaolisShop\NavMenu.css" />
     <Content Include="Content\ZaolisShop\SignInUp.css" />
+    <Content Include="Content\ZaolisShop\Table.css" />
     <Content Include="Content\ZaolisShop\ZaolisFooter.css" />
     <Content Include="Content\ZaolisShop\ZaolisInput.css" />
     <Content Include="favicon.ico" />
@@ -209,6 +210,7 @@
     <Content Include="Areas\Admin\Views\AdminPanel\CreateProductInfo.cshtml" />
     <Content Include="Areas\Admin\Views\AdminPanel\ProductList.cshtml" />
     <Content Include="Areas\Admin\Views\AdminPanel\CreateProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminPanel\EditCategory.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

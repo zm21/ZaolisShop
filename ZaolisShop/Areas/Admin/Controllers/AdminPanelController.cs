@@ -48,6 +48,37 @@ namespace ZaolisShop.Areas.Admin.Controllers
             return RedirectToAction("CategoryList", "AdminPanel");
         }
 
+        [HttpGet]
+        public ActionResult EditCategory(int id)
+        {
+            var editCat = _context.Categories.Select(s => new CategoryDTO
+            {
+               Id=s.Id, 
+               Name=s.Name
+            }).FirstOrDefault(s => s.Id == id);
+
+            if (editCat != null)
+            {
+                return View(editCat);
+            }
+            else
+                return RedirectToAction("CategoryList", "AdminPanel");
+
+        }
+        [HttpPost]
+        public ActionResult EditCategory(CategoryDTO model)
+        {
+            var editCat = _context.Categories.FirstOrDefault(t => t.Id == model.Id);
+            if (editCat != null)
+            {
+                editCat.Name = model.Name;
+                _context.SaveChanges();
+                return RedirectToAction("CategoryList", "AdminPanel");
+            }
+            return RedirectToAction("CategoryList", "AdminPanel");
+        }
+
+
         public ActionResult CategoryList()
         {
             var data = unitOfWork.CategoryRepository.Get().Select(c => new CategoryDTO
