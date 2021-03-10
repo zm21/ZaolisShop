@@ -36,17 +36,23 @@
         <div class="navbar-collapse collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="top-li">
-                    <a class="link"  href="@Url.Action("Index", "Home", new { area = "" })">
+                    <a class="link" href="@Url.Action("Index", "Home", new { area = "" })">
                         HOME
                     </a>
                 </li>
-               
+
                 <li class="top-li">
                     <a class="link" href="@Url.Action("CategoryList", "AdminPanel")">
                         CATEGORIES
                     </a>
-
                 </li>
+
+                <li class="top-li">
+                    <a class="link" href="@Url.Action("ProductList", "AdminPanel")">
+                        PRODUCTS
+                    </a>
+                </li>
+
                 <li class="top-li">
                     <a class="link" href="#">
                         ABOUT
