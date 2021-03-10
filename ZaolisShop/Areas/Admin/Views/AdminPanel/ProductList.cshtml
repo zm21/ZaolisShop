@@ -25,8 +25,9 @@
                 @Html.DisplayFor(modelItem => item.Name) | @Html.DisplayFor(modelItem => item.Price) EUR
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditProduct", new { id = item.Id }, new { @class = "btn btn-info" }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Edit", "EditProduct", new { id = item.Id }, new { @class = "btn btn-info" }) 
+                @Html.ActionLink("Add product", "CreateProductInfo", new { id = item.Id }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Products", "ProductInfoList", "AdminPanel", new { @class = "btn btn-info" })
             </td>
         </tr>
     }
