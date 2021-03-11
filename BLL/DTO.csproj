@@ -73,10 +73,12 @@
     <Compile Include="CreateModels\ProductInfoCreateDTO.cs" />
     <Compile Include="Models\CartDTO.cs" />
     <Compile Include="Models\CategoryDTO.cs" />
+    <Compile Include="Models\HomePageProductDTO.cs" />
     <Compile Include="Models\ImageDTO.cs" />
     <Compile Include="Models\OrderDTO.cs" />
     <Compile Include="Models\ProductDTO.cs" />
     <Compile Include="Models\ProductInfoDTO.cs" />
+    <Compile Include="Models\ProdutcInfDTO.cs" />
     <Compile Include="Models\ShippingAdressDTO.cs" />
     <Compile Include="Models\UserAdditionalInfoDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
