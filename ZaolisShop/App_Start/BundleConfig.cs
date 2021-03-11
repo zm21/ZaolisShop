@@ -25,12 +25,17 @@ namespace ZaolisShop
             bundles.Add(new ScriptBundle("~/bundles/jQuery").Include(
                    "~/Scripts/jquery-3.4.1.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/ShoppingCard").Include(
+                   "~/Scripts/ZaolisShop/ShoppingCard.js"));
+
 
             bundles.Add(new ScriptBundle("~/bundles/ZaolisShop/js").Include(
                      "~/Scripts/ZaolisShop/NavMenu.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/ZaolisShop/AOSJS").Include(
                     "~/url/https://unpkg.com/aos@2.3.1/dist/aos.js"));
+
+           
 
 
 
