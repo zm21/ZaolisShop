@@ -9,13 +9,13 @@ namespace BLL.Models
 {
     public class HomePageProductDTO
     {
-        public List<ProdutcInfDTO> ProductsNew { get; set; }
+        public List<ProductInfDTO> ProductsNew { get; set; }
 
-        public List<ProdutcInfDTO> ProductsPopular { get; set; }
+        public List<ProductInfDTO> ProductsPopular { get; set; }
         public HomePageProductDTO()
         {
-            ProductsNew = new List<ProdutcInfDTO>();
-            ProductsPopular = new List<ProdutcInfDTO>();
+            ProductsNew = new List<ProductInfDTO>();
+            ProductsPopular = new List<ProductInfDTO>();
         }
     }
 }
