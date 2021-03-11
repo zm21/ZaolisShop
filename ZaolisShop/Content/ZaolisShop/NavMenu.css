@@ -33,6 +33,8 @@ label, input {
     text-decoration: none !important;
     color: white;
     cursor: pointer !important;
+    letter-spacing: 2px;
+    display: block;
 }
 
 .right-icons {
@@ -54,7 +56,29 @@ label, input {
     background-color: black;
     justify-content: space-between;
     padding: 10px;
+    min-height: 70px;
+    width: 100%;
 }
+
+#top-nav-index {
+    z-index: 100;
+    background-color: rgba(0,0,0,0);
+    border-bottom: 0.5px solid rgb(199, 199, 199);
+    justify-content: space-between;
+    padding: 10px;
+    min-height: 70px;
+    width: 100%;
+    position: fixed;
+}
+
+#top-nav-default {
+    background-color: black;
+    justify-content: space-between;
+    padding: 10px;
+    min-height: 70px;
+    width: 100%;
+}
+
 
 .top-ul {
     list-style: none;
@@ -130,6 +154,7 @@ label, input {
 }
 
 .megamenu {
+    margin-top: -5px;
     padding: 20px 0px;
     width: 100%;
 }
