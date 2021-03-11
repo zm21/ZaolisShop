@@ -208,5 +208,41 @@ namespace ZaolisShop.Areas.Admin.Controllers
             });
             return View(data);
         }
+
+        [HttpGet]
+        public ActionResult EditProductInfo(int id)
+        {
+            var editProd = _context.ProductInfos.Select(s => new ProductInfoDTO
+            {
+                Id = s.Id,
+                Color=s.Color,
+                Count=s.Count,
+                Size=s.Size,
+                ProductName=s.Product.Name
+            }).FirstOrDefault(s => s.Id == id);
+
+            if (editProd != null)
+            {
+                return View(editProd);
+            }
+            else
+                return RedirectToAction("ProductList", "AdminPanel");
+
+        }
+        [HttpPost]
+        public ActionResult EditProductInfo(ProductInfoDTO model)
+        {
+            var editProd = _context.ProductInfos.FirstOrDefault(t => t.Id == model.Id);
+            if (editProd != null)
+            {
+                editProd.Product.Name = model.ProductName;
+                editProd.Color = model.Color;
+                editProd.Count = model.Count;
+                editProd.Size = model.Size;
+                _context.SaveChanges();
+                return RedirectToAction("ProductList", "AdminPanel");
+            }
+            return RedirectToAction("ProductList", "AdminPanel");
+        }
     }
 }

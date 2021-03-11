@@ -64,6 +64,9 @@ namespace ZaolisShop
             bundles.Add(new StyleBundle("~/Content/ZaolisShop/AOS").Include(
                     "~/url/https://unpkg.com/aos@2.3.1/dist/aos.css"));
 
+            bundles.Add(new StyleBundle("~/Content/ZaolisShop/ShoppingCard").Include(
+                    "~/Content/ZaolisShop/ShoppingCard.css"));
+
 
 
         }
