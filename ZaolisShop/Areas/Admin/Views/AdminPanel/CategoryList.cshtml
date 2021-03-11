@@ -5,29 +5,32 @@
     ViewBag.Title = "Categories List";
 }
 
-<p>
-    <div>
-        @Html.ActionLink("Create New Category", "CreateCategory", "CreateCategory" , new { @class = "btn btn-info" })
-    </div>
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th></th>
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "EditCategory", new { id = item.Id }, new { @class = "btn btn-info" }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-info" })
-            </td>
-        </tr>
-    }
-</table>
+<div class="container-fluid">
 
+    <p>
+        <div>
+            @Html.ActionLink("Create New Category", "CreateCategory", "CreateCategory", new { @class = "btn btn-info" })
+        </div>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditCategory", new { id = item.Id }, new { @class = "btn btn-info" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-info" })
+                </td>
+            </tr>
+        }
+    </table>
+
+</div>
