@@ -195,6 +195,7 @@
     <Content Include="Content\ZaolisShop\HomePage.css" />
     <Content Include="Content\ZaolisShop\NavMenu.css" />
     <Content Include="Content\ZaolisShop\ProductCard.css" />
+    <Content Include="Content\ZaolisShop\ShoppingCard.css" />
     <Content Include="Content\ZaolisShop\SignInUp.css" />
     <Content Include="Content\ZaolisShop\Table.css" />
     <Content Include="Content\ZaolisShop\ZaolisFooter.css" />
@@ -216,6 +217,7 @@
     <Content Include="Areas\Admin\Views\AdminPanel\CreateProduct.cshtml" />
     <Content Include="Areas\Admin\Views\AdminPanel\ProductInfoList.cshtml" />
     <Content Include="Areas\Admin\Views\AdminPanel\EditCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminPanel\EditProductInfo.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -228,6 +230,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\ZaolisShop\NavMenu.js" />
+    <Content Include="Scripts\ZaolisShop\ShoppingCard.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
