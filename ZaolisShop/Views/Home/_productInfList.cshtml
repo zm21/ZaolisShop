@@ -1,0 +1,24 @@
+﻿@model IEnumerable<BLL.Models.ProductInfDTO>
+
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div data-aos="zoom-in" class="card-margin col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="div-link">
+                    <a href="#">
+                        <div class="images">
+                            <img class="image-1" src="https://cdn.shopify.com/s/files/1/0118/8144/7486/products/1_clipped_rev_1_671638db-0631-4280-8e79-34255e053a9f_1024x1024.jpg?v=1610981391">
+                            <img class="image-2" src="https://cdn.shopify.com/s/files/1/0118/8144/7486/products/2_clipped_rev_1_d136d9e9-4227-4eb5-b40e-33bfd3744aee_1024x1024.jpg?v=1610981390">
+                        </div>
+                        <div>
+                            <span>@item.Name</span>
+                            <br>
+                            <span>@item.Price</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }   
+    </div>
+</div>

@@ -20,6 +20,7 @@ namespace ZaolisShop.Controllers
             _context = new ApplicationDbContext();
             unitOfWork = new UnitOfWork(_context);
         }
+
         public ActionResult Index()
         {
             HomePageProductDTO model = new BLL.Models.HomePageProductDTO();
@@ -44,7 +45,7 @@ namespace ZaolisShop.Controllers
                     productInfDTOs.Add(product);
                 }
             }
-
+            model.ProductsNew = productInfDTOs;
             return View(model);
         }
 
@@ -60,6 +61,40 @@ namespace ZaolisShop.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult ProductsByCategory(string _category)
+        {
+            var category = unitOfWork.CategoryRepository.Get(c => c.Name == _category).FirstOrDefault();
+            if(category!=null)
+            {
+                HomePageProductDTO model = new BLL.Models.HomePageProductDTO();
+                var products = unitOfWork.ProductInfoRepository.Get(p=>p.Product.CategoryId==category.Id);
+                List<ProductInfDTO> productInfDTOs = new List<ProductInfDTO>();
+                foreach (var item in products)
+                {
+                    if (productInfDTOs.FirstOrDefault(p => p.Id == item.ProductId) == null)
+                    {
+                        var product = new ProductInfDTO
+                        {
+                            Id = item.ProductId,
+                            Price = item.Product.Price,
+                            Name = item.Product.Name
+                        };
+                        var Images = item.Images.ToList();
+                        if (Images.Count > 0 && Images.Count >= 2)
+                        {
+                            product.Img1 = Images[0].Name;
+                            product.Img2 = Images[1].Name;
+                        }
+                        productInfDTOs.Add(product);
+                    }
+                }
+                model.ProductsNew = productInfDTOs;
+                return View(model);
+            }
+            return RedirectToAction("Index", "Home");
         }
     }
 }
