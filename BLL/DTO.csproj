@@ -78,6 +78,7 @@
     <Compile Include="Models\OrderDTO.cs" />
     <Compile Include="Models\ProductDTO.cs" />
     <Compile Include="Models\ProductInfoDTO.cs" />
+    <Compile Include="Models\ProductPageDTO.cs" />
     <Compile Include="Models\ProdutcInfDTO.cs" />
     <Compile Include="Models\ShippingAdressDTO.cs" />
     <Compile Include="Models\UserAdditionalInfoDTO.cs" />

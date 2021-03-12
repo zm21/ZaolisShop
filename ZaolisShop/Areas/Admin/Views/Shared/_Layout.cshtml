@@ -5,34 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet" />
+    @*<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />*@
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/ZaolisShop/layoutCSS")
+    @Styles.Render("~/Content/ZaolisShop/AOS")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jQuery")
     @Scripts.Render("~/bundles/ZaolisShop/js")
+    @Scripts.Render("~/bundles/ZaolisShop/AOSJS")
 
 </head>
-<body>  
-
+<body>
     <nav class="navbar top-nav navbar-expand-md myMenu">
-        <div class="d-flex justify-content-end">
-            <button class="navbar-toggler" style="color: white;" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="navbar ml-auto">
-                <li class="top-li">
-                    <a href="/Account/Login">
-                        <i class="far fa-user"></i>
-                    </a>
-                </li>
-                <li class="top-li">
-                    <a href="#">
-                        <i class="fas fa-shopping-cart"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <button class="navbar-toggler" style="color: white;" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
         <div class="navbar-collapse collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="top-li">
@@ -52,53 +40,26 @@
                         PRODUCTS
                     </a>
                 </li>
-
-                <li class="top-li">
-                    <a class="link" href="#">
-                        ABOUT
-                    </a>
-
-                </li>
-                <li class="dropdown menu-large top-li">
-                    <a href="#" class="dropdown-toggle link" data-toggle="dropdown">SHOP</a>
-                    <ul class="dropdown-menu megamenu row">
-                        <li class="col-sm-3">
-                            <ul>
-                                <li class="dropdown-header">Categories</li>
-                                <li><a href="#">T-Shirts</a></li>
-                                <li><a href="#">Shirts</a></li>
-                                <li><a href="#">Hoodies</a></li>
-
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
             </ul>
         </div>
         <div class=" navbar-collapse  w-100 order-1 order-md-0 dual-collapse2 ">
 
         </div>
-        <!--<div class="navbar w-100">-->
-        @*<ul class="navbar ml-auto">
+        <div class="right-icons w-100">
+            <ul class="right-icons ml-auto">
                 <li class="top-li">
-                    <a href="#">
+                    <a class="account-button" href="Account/Login">
                         <i class="far fa-user"></i>
                     </a>
                 </li>
                 <li class="top-li">
                     <a href="#">
-                        <i class="fas fa-shopping-cart"></i>
+                        <i class="far fa-shopping-cart"></i>
                     </a>
                 </li>
-            </ul>*@
-        <!--</div>-->
+            </ul>
+        </div>
     </nav>
-
-
-
-
-
-
 
     <div class="body-content">
         @RenderBody()
@@ -148,11 +109,8 @@
         <section class="footer-item">
             <h3 class="footer-h3"></h3>
             <ul class="footer-ul">
-                <li><i class="fab fa-cc-visa fa-2x" style="color: lightgray;"></i> <i class="fab fa-cc-amex fa-2x" style="color: lightgray;"></i></li>
-                <li><i class="fab fa-cc-paypal fa-2x" style="color: lightgray;"></i> <i class="fab fa-cc-jcb fa-2x" style="color: lightgray;"></i></li>
-                <li><i class="fab fa-cc-mastercard fa-2x" style="color: lightgray;"></i> <i class="fab fa-cc-stripe fa-2x" style="color: lightgray;"></i></li>
-                <li><i class="fab fa-cc-apple-pay fa-2x" style="color: lightgray;"></i> <i class="fab fa-cc-discover fa-2x" style="color: lightgray;"></i></li>
-                <li><i class="fab fa-cc-amazon-pay fa-2x" style="color: lightgray;"></i> <i class="fab fa-cc-diners-club fa-2x" style="color: lightgray;"></i></li>
+                <li><i class="fab fa-cc-visa fa-2x" style="color: lightgray;"></i>   <i class="fab fa-cc-discover fa-2x" style="color: lightgray;"></i> <i class="fab fa-cc-mastercard fa-2x" style="color: lightgray;"></i> <i class="fab fa-cc-amazon-pay fa-2x" style="color: lightgray;"></i>  <i class="fab fa-cc-amex fa-2x" style="color: lightgray;"></i></li>
+                <li><i class="fab fa-cc-paypal fa-2x" style="color: lightgray;"></i> <i class="fab fa-cc-stripe fa-2x" style="color: lightgray;"></i> <i class="fab fa-cc-apple-pay fa-2x" style="color: lightgray;"></i> <i class="fab fa-cc-diners-club fa-2x" style="color: lightgray;"></i> <i class="fab fa-cc-jcb fa-2x" style="color: lightgray;"></i></li>
             </ul>
         </section>
     </footer>
@@ -160,5 +118,13 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    @*@section scripts {
+
+            <script>
+                AOS.init();
+            </script>
+        }*@
+    @Scripts.Render("~/bundles/ZaolisShop/AOSJS")
 </body>
+
 </html>

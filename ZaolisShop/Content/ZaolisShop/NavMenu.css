@@ -3,6 +3,7 @@
 }
 
 
+
 .hidden {
     display: inline;
 }
@@ -58,6 +59,7 @@ label, input {
     padding: 10px;
     min-height: 70px;
     width: 100%;
+    margin-bottom: 50px;
 }
 
 #top-nav-index {
