@@ -1,0 +1,132 @@
+﻿@model DTO.Models.ProductPageDTO
+
+@Styles.Render("~/Content/ZaolisShop/ProductView")
+
+
+<div class="container">
+    <div class="row main">
+        <div class="product-images col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    @foreach (var item in Model.Images)
+                    {
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="/Images/Products/@item" alt="First slide">
+                    </div>
+                    }
+                  
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="product-info col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="name-price-info">
+                <h3>@Model.Name</h3>
+                <h4>@Model.Price</h4>
+            </div>
+            <div>
+                <h5>Color</h5>
+                @{ var productColors = new List<string>();
+                    foreach (var item in Model.Colors)
+                    {
+
+                        if (!productColors.Contains(item))
+                        {
+                            productColors.Add(item);
+                            <button class="color-button-unchecked">@item</button>
+                        }
+                    }
+                }
+            </div>
+            <div>
+                <h5>Size</h5>
+                @{ var productSizes = new List<string>();
+                foreach (var item in Model.Sizes)
+                {
+
+                    if (!productSizes.Contains(item))
+                    {
+                        productSizes.Add(item);
+                            <button class="color-button-unchecked">@item</button>
+                    }
+                }
+                }
+            </div>
+            <div>
+                <button class="button-add-to-cart">ADD TO CART</button>
+            </div>
+            <hr style="border: 1px solid black;">
+            <div>
+                <p style="font-size: 18px; text-align: left;">
+                    @Model.Description
+                </p>
+            </div>
+            <hr style="border: 1px solid black;">
+            <div>
+                <a href="#win1" class="sizing-info">SIZING INFO</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" style="text-align: center;">
+    <h2>
+        YOU MAY ALSO LIKE
+    </h2>
+    <div class="row">
+
+    </div>
+</div>
+<a href="#x" class="overlay" id="win1"></a>
+<div class="popup">
+    <table>
+        <thead>
+            <tr class="background-tr-3">
+                <th class="left-top-th">Size (cm)</th>
+                <th>Chest Width</th>
+                <th>Body Length</th>
+                <th>Cross Shoulder</th>
+                <th class="right-top-th">Steeve Length</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="background-tr-2">
+                <td><b>S</b></td>
+                <td>115</td>
+                <td>69</td>
+                <td>53</td>
+                <td>19.5</td>
+            </tr>
+            <tr class="background-tr-3">
+                <td><b>M</b></td>
+                <td>119</td>
+                <td>71</td>
+                <td>54</td>
+                <td>20</td>
+            </tr>
+            <tr class="background-tr-2">
+                <td><b>L</b></td>
+                <td>123</td>
+                <td>73</td>
+                <td>55</td>
+                <td>20.5</td>
+            </tr>
+            <tr class="background-tr-3">
+                <td class="left-down-td"><b>XL</b></td>
+                <td>127</td>
+                <td>75</td>
+                <td>56</td>
+                <td class="right-down-td">21</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+

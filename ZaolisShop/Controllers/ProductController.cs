@@ -1,4 +1,5 @@
 ﻿using DAL.EF;
+using DAL.Entities;
 using DAL.Interfaces;
 using DAL.Repositories;
 using DTO.Models;
@@ -26,13 +27,34 @@ namespace ZaolisShop.Controllers
             var viewProducts = unitOfWork.ProductInfoRepository.Get(t => t.ProductId == id);
             var product = unitOfWork.ProductRepository.GetById(id);
 
-            var viewPageProduct = viewProducts.Select(t => new ProductPageDTO()
+            var viewPageProduct = new ProductPageDTO()
             {
                 Name = product.Name,
                 Price = product.Price,
                 Description = product.Description
-            });
+            };
 
+            viewPageProduct.Colors = viewProducts.Select(t => t.Color).ToList();
+            viewPageProduct.Sizes = viewProducts.Select(t => t.Size).ToList();
+
+            var productinfos = new List<ProductInfo>();
+            foreach (var item in viewProducts)
+            {
+                if (!productinfos.Select(t => t.Color).Contains(item.Color))
+                {
+                    productinfos.Add(item);
+                }
+            }
+
+            var images = productinfos.Select(t => t.Images);
+            var imageNames = new List<string>();
+
+            foreach (var item in images)
+            {
+                imageNames.AddRange(item.Select(t => t.Name));
+            }
+
+            viewPageProduct.Images = imageNames;
 
             if (viewPageProduct != null)
             {
