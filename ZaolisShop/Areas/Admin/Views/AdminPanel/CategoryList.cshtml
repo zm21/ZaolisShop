@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<BLL.Models.CategoryDTO>
 @Styles.Render("~/Content/ZaolisShop/Table")
+@Styles.Render("~/Content/ZaolisShop/ShoppingCard")
 
 @{
     ViewBag.Title = "Categories List";
@@ -9,7 +10,7 @@
 
     <p>
         <div>
-            @Html.ActionLink("Create New Category", "CreateCategory", "CreateCategory", new { @class = "btn btn-info" })
+            @Html.ActionLink("Create", "CreateCategory", "CreateCategory", new { @class = "floating-button" })
         </div>
     </p>
     <table class="table">
@@ -26,8 +27,8 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "EditCategory", new { id = item.Id }, new { @class = "btn btn-info" }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Edit", "EditCategory", new { id = item.Id }, new { @class = "floating-button" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "floating-button" })
                 </td>
             </tr>
         }
