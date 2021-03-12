@@ -74,13 +74,13 @@
                     <li class="top-li">
                         @if (Request.IsAuthenticated)
                         {
-                            <a class="account-button" href="../Manage/Index">
+                            <a class="account-button" href="@Url.Action("Index","Manage")">
                                 <i class="far fa-user"></i>
                             </a>
                         }
                         else
                         {
-                            <a class="account-button" href="Account/Login">
+                            <a class="account-button" href="@Url.Action("Login","Account")">
                                 <i class="far fa-user"></i>
                             </a>
                         }

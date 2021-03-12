@@ -48,9 +48,18 @@
         <div class="right-icons w-100">
             <ul class="right-icons ml-auto">
                 <li class="top-li">
-                    <a class="account-button" href="Account/Login">
-                        <i class="far fa-user"></i>
-                    </a>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <a class="account-button" href="@Url.Action("Index","Manage")">
+                            <i class="far fa-user"></i>
+                        </a>
+                    }
+                    else
+                    {
+                        <a class="account-button" href="@Url.Action("Login","Account")">
+                            <i class="far fa-user"></i>
+                        </a>
+                    }
                 </li>
                 <li class="top-li">
                     <a href="#">
