@@ -67,6 +67,8 @@ namespace ZaolisShop
             bundles.Add(new StyleBundle("~/Content/ZaolisShop/ShoppingCard").Include(
                     "~/Content/ZaolisShop/ShoppingCard.css"));
 
+            bundles.Add(new StyleBundle("~/Content/ZaolisShop/AccountManage").Include(
+                    "~/Content/ZaolisShop/ManageAccount.css"));
 
 
         }

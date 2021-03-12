@@ -56,14 +56,14 @@ namespace ZaolisShop
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "339392110843869",
-               appSecret: "0bd23b502133e15b666c2baccbad8354");
+               appId: "1324130791287543",
+               appSecret: "6c96e6a15014a4b123c14143572be78b");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "777613978305-s66il0206vnmqjsn67tpt6du2somfftf.apps.googleusercontent.com",
+                ClientSecret = "itH7MMsaSR1XSNp_JBDLjxGA"
+            });
         }
     }
 }
