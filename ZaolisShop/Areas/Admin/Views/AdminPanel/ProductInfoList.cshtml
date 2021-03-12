@@ -8,25 +8,25 @@
 
 <div class="container-fluid">
     <p>
-        @Html.ActionLink("Create New", "Create", new { @class = "btn btn-info" })
+        @Html.ActionLink("Create New", "Create", "Create", new { @class = "floating-button" })
     </p>
+    <div class="container d-flex justify-content-center">
+        @foreach (var item in Model)
+        {
+            <div class="card " style="width: 18rem;">
+                <img class="card-img-top" src="/Images/Products/@Html.DisplayFor(modelItem => item.Images[0])" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => item.ProductName)</strong></h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+                <ul class="list-group list-group-flush container d-flex justify-content-center">
+                    <li class="list-group-item">Size: @Html.DisplayFor(modelItem => item.Size)</li>
+                </ul>
+                <div class="card-body container d-flex justify-content-center">
+                    @Html.ActionLink("Edit", "EditProductInfo", new { id = item.Id }, new { @class = "floating-button" })
+                </div>
+            </div>
+        }
 
-    @foreach (var item in Model)
-    {
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="/Images/Products/@Html.DisplayFor(modelItem => item.Images[0])" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => item.ProductName)</strong></h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Size: @Html.DisplayFor(modelItem => item.Size)</li>
-            </ul>
-            <div class="card-body">
-                @Html.ActionLink("Edit", "EditProductInfo", new { id = item.Id }, new { @class = "floating-button" })
-            </div>
         </div>
-    }
-
-
-</div>
+    </div>

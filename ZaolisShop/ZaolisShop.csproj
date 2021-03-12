@@ -218,6 +218,7 @@
     <Content Include="Areas\Admin\Views\AdminPanel\ProductInfoList.cshtml" />
     <Content Include="Areas\Admin\Views\AdminPanel\EditCategory.cshtml" />
     <Content Include="Areas\Admin\Views\AdminPanel\EditProductInfo.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminPanel\EditProduct.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

@@ -119,6 +119,43 @@ namespace ZaolisShop.Areas.Admin.Controllers
             return RedirectToAction("ProductList", "AdminPanel");
         }
 
+        [HttpGet]
+        public ActionResult EditProduct(int id)
+        {
+            var editProd = _context.Products.Select(s => new ProductDTO
+            {
+                Id = s.Id,
+                Category=s.Category.Name,
+                CategoryId=s.CategoryId,
+                Description=s.Description,
+                Name=s.Name,
+                Price=s.Price
+            }).FirstOrDefault(s => s.Id == id);
+
+            if (editProd != null)
+            {
+                return View(editProd);
+            }
+            else
+                return RedirectToAction("ProductList", "AdminPanel");
+
+        }
+        [HttpPost]
+        public ActionResult EditProduct(ProductDTO model)
+        {
+            var editProd = _context.Products.FirstOrDefault(t => t.Id == model.Id);
+            if (editProd != null)
+            {
+                editProd.Price = model.Price;
+                editProd.Name = model.Name;
+                editProd.Description = model.Description;
+                editProd.CategoryId = model.CategoryId;
+                _context.SaveChanges();
+                return RedirectToAction("ProductList", "AdminPanel");
+            }
+            return RedirectToAction("ProductList", "AdminPanel");
+        }
+
         public ActionResult ProductList()
         {
             var data = unitOfWork.ProductRepository.Get().Select(c => new ProductDTO
