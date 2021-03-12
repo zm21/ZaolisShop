@@ -8,10 +8,11 @@
   margin-bottom:45px; 
 }
 .inp				{
+	margin: auto;
   font-size:18px;
   padding:10px 10px 10px 5px;
   display:block;
-  width:300px;
+  width:100%;
   border:none;
   border-bottom:1px solid #757575;
 }
@@ -24,6 +25,7 @@
   font-weight:normal;
   position:absolute;
   pointer-events:none;
+  margin-left: 10px;
   left:5px;
   top:10px;
   transition:0.2s ease all; 
@@ -52,10 +54,10 @@
   -webkit-transition:0.2s ease all;
 }
 .bar:before {
-  left:50%;
+  left:46%;
 }
 .bar:after {
-  right:50%; 
+  right:46%; 
 }
 
 /* active state */
@@ -80,6 +82,7 @@
   -moz-animation:inputHighlighter 0.3s ease;
   animation:inputHighlighter 0.3s ease;
 }
+
 
 /* ANIMATIONS ================ */
 /* @-webkit-keyframes inputHighlighter {
