@@ -26,7 +26,7 @@ namespace ZaolisShop.Areas.Admin.Controllers
 
             _context = new ApplicationDbContext();
             unitOfWork = new UnitOfWork(_context);
-       
+
             unitOfWork = new UnitOfWork(new ApplicationDbContext());
         }
 
@@ -47,7 +47,7 @@ namespace ZaolisShop.Areas.Admin.Controllers
         {
             _context.Categories.Add(new DAL.Entities.Category
             {
-                Name=model.Name
+                Name = model.Name
             });
             _context.SaveChanges();
             return RedirectToAction("CategoryList", "AdminPanel");
@@ -58,8 +58,8 @@ namespace ZaolisShop.Areas.Admin.Controllers
         {
             var editCat = _context.Categories.Select(s => new CategoryDTO
             {
-               Id=s.Id, 
-               Name=s.Name
+                Id = s.Id,
+                Name = s.Name
             }).FirstOrDefault(s => s.Id == id);
 
             if (editCat != null)
@@ -111,8 +111,8 @@ namespace ZaolisShop.Areas.Admin.Controllers
             _context.Products.Add(new DAL.Entities.Product
             {
                 Name = model.Name,
-                Description=model.Description,
-                Price=model.Price,
+                Description = model.Description,
+                Price = model.Price,
                 CategoryId = category.Id
             });
             _context.SaveChanges();
@@ -125,11 +125,11 @@ namespace ZaolisShop.Areas.Admin.Controllers
             var editProd = _context.Products.Select(s => new ProductDTO
             {
                 Id = s.Id,
-                Category=s.Category.Name,
-                CategoryId=s.CategoryId,
-                Description=s.Description,
-                Name=s.Name,
-                Price=s.Price
+                Category = s.Category.Name,
+                CategoryId = s.CategoryId,
+                Description = s.Description,
+                Name = s.Name,
+                Price = s.Price
             }).FirstOrDefault(s => s.Id == id);
 
             if (editProd != null)
@@ -175,7 +175,7 @@ namespace ZaolisShop.Areas.Admin.Controllers
         public ActionResult CreateProductInfo(int id)
         {
             var product = unitOfWork.ProductRepository.GetById(id);
-            if(product!=null)
+            if (product != null)
             {
                 ProductInfoCreateDTO model = new ProductInfoCreateDTO();
                 model.ProductId = id;
@@ -252,10 +252,10 @@ namespace ZaolisShop.Areas.Admin.Controllers
             var editProd = _context.ProductInfos.Select(s => new ProductInfoDTO
             {
                 Id = s.Id,
-                Color=s.Color,
-                Count=s.Count,
-                Size=s.Size,
-                ProductName=s.Product.Name
+                Color = s.Color,
+                Count = s.Count,
+                Size = s.Size,
+                ProductName = s.Product.Name
             }).FirstOrDefault(s => s.Id == id);
 
             if (editProd != null)
