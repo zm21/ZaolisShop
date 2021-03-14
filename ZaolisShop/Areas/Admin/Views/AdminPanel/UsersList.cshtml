@@ -20,7 +20,7 @@
                     <li class="list-group-item">Email: @Html.DisplayFor(modelItem => item.Email)</li>
                 </ul>
                 <div class="card-body container d-flex justify-content-center align-items-end">
-                    @Html.ActionLink("Orders", "UserOrdersList", new { id = item.Id }, new { @class = "floating-button" })
+                    @Html.ActionLink("Orders", "UserOrdersList", new { userId = item.Id }, new { @class = "floating-button" })
                 </div>
             </div>
         </div>

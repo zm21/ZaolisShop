@@ -10,6 +10,7 @@ namespace BLL.Models
     {
         public int Id { get; set; }
         public string UserAdditionalInfoId { get; set; }
+        public string ShippingAdress { get; set; }
         public int ShippingAdressId { get; set; }
         public string DateOfOrder { get; set; }
     }

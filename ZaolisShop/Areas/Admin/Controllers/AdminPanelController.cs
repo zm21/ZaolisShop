@@ -295,5 +295,49 @@ namespace ZaolisShop.Areas.Admin.Controllers
             });
             return View(data);
         }
+
+        public ActionResult UserOrdersList(string userId)
+        {
+            var data = unitOfWork.OrderRepository.Get().Where(o=>o.UserAdditionalInfoId==userId).Select(c => new OrderDTO
+            {
+                Id = c.Id,
+                DateOfOrder=c.DateOfOrder,
+                ShippingAdress=c.UserAdditionalInfo.ShippingAdresses.FirstOrDefault().ToString()
+            });
+            return View(data);
+        }
+
+        public ActionResult ShowShippingAdress(int id)
+        {
+            var order = unitOfWork.OrderRepository.GetById(id);
+            var c = order.ShippingAdress;
+            var data = new ShippingAdressDTO
+            {
+                Id = c.Id,
+                Adress=c.Adress,
+                FirstName=c.FirstName,
+                Appartment=c.Appartment,
+                City=c.City,
+                Country=c.Country,
+                LastName=c.LastName,
+                Phone=c.Phone,
+                PostalCode=c.PostalCode
+            };
+            return View(data);
+        }
+
+        public ActionResult ShowProduct(int id)
+        {
+            var order = unitOfWork.OrderRepository.GetById(id);
+            var data = unitOfWork.ProductRepository.Get().Where(pr=>pr.Orders.Contains(order)).Select(c => new ProductDTO
+            {
+                Id = c.Id,
+                Category=c.Category.Name,
+                Description=c.Description,
+                Name=c.Name,
+                Price=c.Price
+            });
+            return View(data);
+        }
     }
 }
