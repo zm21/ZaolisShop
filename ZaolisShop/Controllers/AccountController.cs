@@ -181,7 +181,7 @@ namespace ZaolisShop.Controllers
                         LastName = model.LastName,
                         Id = user.Id
                     });
-
+                    _context.SaveChanges();
                     UserManager.AddToRole(user.Id, "Shopper");
                     return RedirectToAction("Index", "Home");
                 }
