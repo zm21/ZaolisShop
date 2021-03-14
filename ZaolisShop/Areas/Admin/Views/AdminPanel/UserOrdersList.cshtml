@@ -1,0 +1,32 @@
+﻿@model IEnumerable<BLL.Models.OrderDTO>
+@Styles.Render("~/Content/ZaolisShop/Table")
+@Styles.Render("~/Content/ZaolisShop/ShoppingCard")
+
+@{
+    ViewBag.Title = "UserOrdersList";
+}
+
+
+<div class="container-fluid d-flex justify-content-center">
+    <table class="table">
+        <tr>
+            <th>
+                Date of Order
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfOrder)
+                </td>
+                <td>
+                    @Html.ActionLink("Shipping Adress", "ShowShippingAdress", "AdminPanel", new { id = item.Id }, new { @class = "floating-button" })
+                    @Html.ActionLink("Ordered Product", "ShowProduct", "AdminPanel", new { id = item.Id }, new { @class = "floating-button" })
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

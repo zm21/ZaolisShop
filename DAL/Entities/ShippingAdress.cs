@@ -47,5 +47,10 @@ namespace DAL.Entities
         public virtual ICollection<Order> Orders { get; set; }
 
         public virtual UserAdditionalInfo UserAdditionalInfo { get; set; }
+
+        public override string ToString()
+        {
+            return Country + "/" + City + ". " + Adress + "," + Appartment + $"[{PostalCode}]"+"/"+Phone;
+        }
     }
 }
