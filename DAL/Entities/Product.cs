@@ -13,6 +13,7 @@ namespace DAL.Entities
         {
             ProductInfos = new HashSet<ProductInfo>();
             Carts = new HashSet<Cart>();
+            Orders = new HashSet<Order>();
         }
 
         [Key]
@@ -30,6 +31,8 @@ namespace DAL.Entities
         public virtual ICollection<Cart> Carts { get; set; }
 
         public virtual ICollection<ProductInfo> ProductInfos { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
 
         public int CategoryId { get; set; }
 

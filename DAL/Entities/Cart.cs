@@ -11,14 +11,14 @@ namespace DAL.Entities
     {
         public Cart()
         {
-            Products = new HashSet<Product>();
+            CartItems = new HashSet<CartItem>();
         }
 
         [Key]
         public int Id { get; set; }
 
         [Required]
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<CartItem> CartItems { get; set; }
 
         [Required]
         public string UserAdditionalInfoId { get; set; }
