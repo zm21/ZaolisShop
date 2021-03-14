@@ -76,6 +76,8 @@ namespace ZaolisShop
                     "~/Content/ZaolisShop/Product.css",
                     "~/Content/ZaolisShop/Sizing.css"));
 
+            bundles.Add(new StyleBundle("~/Content/ZaolisShop/Cart").Include(
+                    "~/Content/ZaolisShop/Cart.css"));
 
         }
     }
