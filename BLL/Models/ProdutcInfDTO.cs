@@ -12,4 +12,5 @@
 
         public string Img2 { get; set; }
     }
+
 }
