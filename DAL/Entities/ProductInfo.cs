@@ -12,6 +12,7 @@ namespace DAL.Entities
         public ProductInfo()
         {
             Images = new HashSet<Image>();
+            CartItems = new HashSet<CartItem>();
         }
 
         [Key]
@@ -32,5 +33,7 @@ namespace DAL.Entities
         public virtual Product Product { get; set; }
         
         public virtual ICollection<Image> Images { get; set; }
+
+        public virtual ICollection<CartItem> CartItems { get; set; }
     }
 }

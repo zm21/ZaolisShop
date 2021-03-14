@@ -58,8 +58,10 @@ namespace ZaolisShop
                     "~/Content/ZaolisShop/Table.css"));
 
             bundles.Add(new StyleBundle("~/Content/ZaolisShop/Home").Include(
-                    "~/Content/ZaolisShop/HomePage.css",
-                    "~/Content/ZaolisShop/ProductCard.css"));
+                    "~/Content/ZaolisShop/HomePage.css"));
+
+            bundles.Add(new StyleBundle("~/Content/ZaolisShop/Product").Include(
+                   "~/Content/ZaolisShop/ProductCard.css"));
 
             bundles.Add(new StyleBundle("~/Content/ZaolisShop/AOS").Include(
                     "~/url/https://unpkg.com/aos@2.3.1/dist/aos.css"));
