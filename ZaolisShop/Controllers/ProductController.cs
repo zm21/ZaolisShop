@@ -69,10 +69,10 @@ namespace ZaolisShop.Controllers
         public ActionResult Cart()
         {
             var user = unitOfWork.ApplicationUserRepository.Get(u => u.Email == User.Identity.Name)?.First();
-            var cart = unitOfWork.CartRepository.Get(c => c.UserAdditionalInfoId == user.Id)?.First();
+            var cart = unitOfWork.CartRepository.Get(c => c.UserAdditionalInfoId == user.Id)?.FirstOrDefault();
+            List<CartItemDTO> cartItems = new List<CartItemDTO>();
             if (cart != null)
             {
-                List<CartItemDTO> cartItems = new List<CartItemDTO>();
                 foreach (var item in cart.CartItems)
                 {
                     CartItemDTO cartItem = new CartItemDTO
@@ -87,9 +87,36 @@ namespace ZaolisShop.Controllers
                     cartItem.Image = item.ProductInfo.Images?.First()?.Name;
                     cartItems.Add(cartItem);
                 }
-                return View(cartItems);
             }
-            return RedirectToAction("Index", "Home");
+            return View(cartItems);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult AddToCart(int id, string color, string size)
+        {
+            var user = unitOfWork.ApplicationUserRepository.Get(u => u.Email == User.Identity.Name)?.First();
+            var cart = unitOfWork.CartRepository.Get(c => c.UserAdditionalInfoId == user.Id)?.FirstOrDefault();
+            var product = unitOfWork.ProductRepository.GetById(id);
+            var productInfo = product.ProductInfos.Where(t => t.Color == color && t.Size == size).FirstOrDefault();
+
+            if (productInfo != null)
+            {
+                var cartItem = new CartItemDTO()
+                {
+                    Name = product.Name,
+                    Price = product.Price,
+                    Image = productInfo.Images.FirstOrDefault()?.Name,
+                    Count = 1,
+                    ProductInfoId = productInfo.Id
+                };
+                return RedirectToAction("Cart", "Product");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
         }
     }
 }

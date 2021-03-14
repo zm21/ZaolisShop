@@ -1,0 +1,61 @@
+﻿@model IEnumerable<BLL.Models.CartItemDTO>
+
+@{
+    ViewBag.Title = "Cart";
+}
+
+@Styles.Render("~/Content/ZaolisShop/Cart")
+@Styles.Render("~/Content/ZaolisShop/SignInUp")
+
+
+<div class="container">
+    <h2 class="cart-header">Cart</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Count)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/Images/Products/@Html.DisplayFor(modelItem => item.Image)" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Count)
+                </td>
+            </tr>
+        }
+    </table>
+    <button type="submit" class="button_base b03_skewed_slide_in" style="background-size: 0%">
+        <div>ORDER</div>
+        <div></div>
+        <div>ORDER</div>
+    </button>
+
+
+</div>
