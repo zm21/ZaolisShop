@@ -6,6 +6,7 @@ using DAL.Interfaces;
 using DAL.Repositories;
 using DTO.Models;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
@@ -168,6 +169,8 @@ namespace ZaolisShop.Areas.Admin.Controllers
                 CategoryId = c.CategoryId,
                 Description = c.Description
             });
+
+
             return View(data);
         }
 
@@ -232,19 +235,29 @@ namespace ZaolisShop.Areas.Admin.Controllers
             return RedirectToAction("Dashboard", "AdminPanel");
         }
 
-        public ActionResult ProductInfoList()
+        public ActionResult ProductInfoList(int id)
         {
-            var data = unitOfWork.ProductInfoRepository.Get().Select(c => new ProductInfoDTO
+            List<ProductInfoDTO> productInfos = new List<ProductInfoDTO>();
+            foreach (var item in unitOfWork.ProductInfoRepository.Get(p=>p.ProductId == id))
             {
-                Id = c.Id,
-                Color = c.Color,
-                Count = c.Count,
-                ProductId = c.ProductId,
-                ProductName = c.Product.Name,
-                Size = c.Size,
-                Images = c.Images.Select(i => i.Name).ToList(),
-            });
-            return View(data);
+                var images = item.Images.Select(i => i.Name).ToList();
+                ProductInfoDTO productInfo = new ProductInfoDTO
+                {
+                    Id = item.Id,
+                    Color = item.Color,
+                    Count = item.Count,
+                    ProductId = item.ProductId,
+                    ProductName = item.Product.Name,
+                    Size = item.Size
+                };
+                if(images.Count>0)
+                {
+                    productInfo.Img1 = images.First();
+                }
+                productInfos.Add(productInfo);
+            }
+
+            return View(productInfos);
         }
 
         [HttpGet]

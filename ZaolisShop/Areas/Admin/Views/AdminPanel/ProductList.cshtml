@@ -30,7 +30,7 @@
                 <td>
                     @Html.ActionLink("Edit", "EditProduct", new { id = item.Id }, new { @class = "btn btn-info" })
                     @Html.ActionLink("Add product", "CreateProductInfo", new { id = item.Id }, new { @class = "btn btn-info" })
-                    @Html.ActionLink("Products", "ProductInfoList", "AdminPanel", new { @class = "btn btn-info" })
+                    @Html.ActionLink("Products", "ProductInfoList", "AdminPanel", new { id = item.Id }, new { @class = "btn btn-info" })
                 </td>
             </tr>
         }
