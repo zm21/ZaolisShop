@@ -3,6 +3,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using DAL.EF;
+using DAL.Interfaces;
+using DAL.Repositories;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -15,9 +18,13 @@ namespace ZaolisShop.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private IUnitOfWork unitOfWork;
+        private ApplicationDbContext _context;
 
         public ManageController()
         {
+            _context = new ApplicationDbContext();
+            unitOfWork = new UnitOfWork(_context);
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -64,13 +71,17 @@ namespace ZaolisShop.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
+            var addInfo = unitOfWork.UserAdditionalInfoRepository.GetById(userId);
+            if (addInfo == null)
+                addInfo = new DAL.Entities.UserAdditionalInfo();
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
+                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
+                FirstName = addInfo.FirstName
             };
             return View(model);
         }
