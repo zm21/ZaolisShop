@@ -17,13 +17,11 @@ namespace DAL.Entities
         [Key]
         public int Id { get; set; }
 
-        [Required]
         public virtual ICollection<CartItem> CartItems { get; set; }
 
         [Required]
         public string UserAdditionalInfoId { get; set; }
 
-        [Required]
         public virtual UserAdditionalInfo UserAdditionalInfo { get; set; }
     }
 }

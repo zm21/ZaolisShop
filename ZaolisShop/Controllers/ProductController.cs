@@ -98,8 +98,8 @@ namespace ZaolisShop.Controllers
             var user = unitOfWork.ApplicationUserRepository.Get(u => u.Email == User.Identity.Name)?.First();
             var cart = unitOfWork.CartRepository.Get(c => c.UserAdditionalInfoId == user.Id)?.FirstOrDefault();
             var product = unitOfWork.ProductRepository.GetById(id);
-            var productInfo = product.ProductInfos.Where(t => t.Color == color && t.Size == size).FirstOrDefault();
-
+            /*Where(t => t.Color == color && t.Size == size)*/
+            var productInfo = product.ProductInfos.FirstOrDefault();
             if (productInfo != null)
             {
                 var cartItem = new CartItemDTO()
@@ -110,6 +110,24 @@ namespace ZaolisShop.Controllers
                     Count = 1,
                     ProductInfoId = productInfo.Id
                 };
+                if(cart==null)
+                {
+                    Cart newCart = new Cart();
+                    var addinfo = _context.UserAdditionalInfos.FirstOrDefault(u => u.Id == user.Id);
+                    newCart.UserAdditionalInfoId = addinfo.Id;
+                    _context.Carts.Add(newCart);
+                    _context.SaveChanges();
+                }
+                cart = unitOfWork.CartRepository.Get(c => c.UserAdditionalInfoId == user.Id)?.FirstOrDefault();
+                _context.CartItems.Add(new CartItem
+                {
+                    Count = 1,
+                    ProductInfoId = productInfo.Id,
+                    CartId =cart.Id
+                });
+                _context.SaveChanges();
+
+
                 return RedirectToAction("Cart", "Product");
             }
             else

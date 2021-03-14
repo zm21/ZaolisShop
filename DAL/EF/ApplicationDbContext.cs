@@ -37,7 +37,7 @@ namespace DAL.EF
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductInfo> ProductInfos { get; set; }
         public DbSet<ShippingAdress> ShippingAdresses { get; set; }
-
+        public DbSet<CartItem> CartItems { get; set; }
 
         public static ApplicationDbContext Create()
         {

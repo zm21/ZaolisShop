@@ -12,6 +12,12 @@ namespace DAL.Entities
         [Required]
         public virtual ProductInfo ProductInfo { get; set; }
 
+        [Required]
+        public int CartId { get; set; }
+
+        [Required]
+        public virtual Cart Cart { get; set; }
+
         public int Count { get; set; }
 
         public decimal TotalPrice { get; set; }
