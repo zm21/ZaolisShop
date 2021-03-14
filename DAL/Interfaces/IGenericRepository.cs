@@ -10,6 +10,7 @@ namespace DAL.Interfaces
     public interface IGenericRepository<TEntity> where TEntity : class
     {
         TEntity GetById(int id);
+        TEntity GetById(string id);
         IEnumerable<TEntity> Get(
            Expression<Func<TEntity, bool>> filter = null,
            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,

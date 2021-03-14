@@ -1,11 +1,16 @@
-﻿@model IEnumerable<BLL.Models.ProductInfDTO>
+﻿@model BLL.Models.HomePageProductDTO
+
 
 <div class="cont-products">
-    <h3 class="home-title">PRODUCTS</h3>
-    @Html.Partial("_productInfList", Model);
-    <div class="button_base b03_skewed_slide_in button-shop">
-        <div>SHOP ALL</div>
-        <div></div>
-        <div>SHOP ALL</div>
-    </div>
+    @if (Model.ProductsNew.Count > 0)
+    {
+        <h3 class="home-title">PRODUCTS</h3>
+        @Html.Partial("_productInfList", Model.ProductsNew)
+    }
+    else
+    {
+        <div class="container">
+            <h3 class="home-title">SORRY PRODUCTS NOT FOUND</h3>
+        </div>
+    }
 </div>

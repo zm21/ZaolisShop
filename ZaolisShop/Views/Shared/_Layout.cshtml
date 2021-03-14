@@ -50,10 +50,10 @@
                         <li class="col-sm-3">
                             <ul>
                                 <li class="dropdown-header">Categories</li>
-                                <li>@Html.ActionLink("T-Shirts", "ProductsByCategory", "Home", new { }, new { _category = "T-Shirt" })</li>
-                                <li><a href="#">T-Shirts</a></li>
-                                <li><a href="#">Shirts</a></li>
-                                <li><a href="#">Hoodies</a></li>
+                                <li><a href="@Url.Action("ProductsByCategory", "Home", new { _category = "T-Shirt"})">T-Shirts</a></li>
+                                <li><a href="@Url.Action("ProductsByCategory", "Home", new { _category = "Hoodies"})">Hoodies</a></li>
+                                <li><a href="@Url.Action("ProductsByCategory", "Home", new { _category = "Shoes"})">Shoes</a></li>
+                                <li><a href="@Url.Action("ProductsByCategory", "Home", new { _category = "Shirts"})">Shirts</a></li>
                             </ul>
                         </li>
                     </ul>
