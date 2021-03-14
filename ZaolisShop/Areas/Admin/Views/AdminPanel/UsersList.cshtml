@@ -1,0 +1,32 @@
+﻿@model IEnumerable<DTO.Models.ApplicationUserDTO>
+@Styles.Render("~/Content/ZaolisShop/ShoppingCard")
+
+
+@{
+    ViewBag.Title = "UsersList";
+}
+
+<div class="container-fluid">
+    <p>
+        @Html.ActionLink("Create New", "Create", "Create", new { @class = "floating-button" })
+    </p>
+    <div class="container d-flex justify-content-center">
+        @foreach (var item in Model)
+        {
+            <div class="card " style="width: 18rem;">
+                <img class="card-img-top" src="https://nogivruki.ua/wp-content/uploads/2018/08/default-user-image.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => item.Username)</strong></h5>
+                </div>
+                <ul class="list-group list-group-flush container d-flex justify-content-center">
+                    <li class="list-group-item">Phone number: @Html.DisplayFor(modelItem => item.PhoneNumber)</li>
+                    <li class="list-group-item">Email: @Html.DisplayFor(modelItem => item.Email)</li>
+                </ul>
+                <div class="card-body container d-flex justify-content-center">
+                    @Html.ActionLink("UserOrders", "UserOrdersList", new { id = item.Id }, new { @class = "floating-button" })
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

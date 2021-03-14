@@ -4,6 +4,7 @@ using DAL.EF;
 using DAL.Entities;
 using DAL.Interfaces;
 using DAL.Repositories;
+using DTO.Models;
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -280,6 +281,19 @@ namespace ZaolisShop.Areas.Admin.Controllers
                 return RedirectToAction("ProductList", "AdminPanel");
             }
             return RedirectToAction("ProductList", "AdminPanel");
+        }
+
+
+        public ActionResult UsersList()
+        {
+            var data = unitOfWork.ApplicationUserRepository.Get().Select(c => new ApplicationUserDTO
+            {
+                Id = c.Id,
+                Email=c.Email,
+                PhoneNumber=c.PhoneNumber,
+                Username=c.UserName
+            });
+            return View(data);
         }
     }
 }

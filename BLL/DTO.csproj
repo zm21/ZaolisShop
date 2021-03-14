@@ -71,6 +71,7 @@
     <Compile Include="CreateModels\OrderCreateDTO.cs" />
     <Compile Include="CreateModels\ProductCreateDTO.cs" />
     <Compile Include="CreateModels\ProductInfoCreateDTO.cs" />
+    <Compile Include="Models\ApplicationUserDTO.cs" />
     <Compile Include="Models\CartDTO.cs" />
     <Compile Include="Models\CategoryDTO.cs" />
     <Compile Include="Models\HomePageProductDTO.cs" />
