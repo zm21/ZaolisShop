@@ -181,7 +181,7 @@ namespace ZaolisShop.Controllers
                         LastName = model.LastName,
                         Id = user.Id
                     });
-
+                    _context.SaveChanges();
                     UserManager.AddToRole(user.Id, "Shopper");
                     return RedirectToAction("Index", "Home");
                 }
@@ -388,9 +388,18 @@ namespace ZaolisShop.Controllers
                     return View("ExternalLoginFailure");
                 }
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+               
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
+                    _context.UserAdditionalInfos.Add(new DAL.Entities.UserAdditionalInfo
+                    {
+                        FirstName = model.FirstName,
+                        LastName = model.LastName,
+                        Id = user.Id
+                    });
+                    _context.SaveChanges();
+                    UserManager.AddToRole(user.Id, "Shopper");
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)
                     {
