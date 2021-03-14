@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EF\ApplicationDbContext.cs" />
+    <Compile Include="Entities\CartItem.cs" />
     <Compile Include="Entities\Configs\ShippingAdressConfig.cs" />
     <Compile Include="Entities\Configs\UserInfoConfig.cs" />
     <Compile Include="Entities\Cart.cs" />
@@ -88,13 +89,13 @@
     <Compile Include="Entities\UserAdditionalInfo.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
-    <Compile Include="Migrations\202103031752072_configs.cs" />
-    <Compile Include="Migrations\202103031752072_configs.Designer.cs">
-      <DependentUpon>202103031752072_configs.cs</DependentUpon>
+    <Compile Include="Migrations\202103141204384_product orders1.cs" />
+    <Compile Include="Migrations\202103141204384_product orders1.Designer.cs">
+      <DependentUpon>202103141204384_product orders1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202103091746253_category in product.cs" />
-    <Compile Include="Migrations\202103091746253_category in product.Designer.cs">
-      <DependentUpon>202103091746253_category in product.cs</DependentUpon>
+    <Compile Include="Migrations\202103141215385_cart items.cs" />
+    <Compile Include="Migrations\202103141215385_cart items.Designer.cs">
+      <DependentUpon>202103141215385_cart items.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,11 +107,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202103031752072_configs.resx">
-      <DependentUpon>202103031752072_configs.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103141204384_product orders1.resx">
+      <DependentUpon>202103141204384_product orders1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103091746253_category in product.resx">
-      <DependentUpon>202103091746253_category in product.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103141215385_cart items.resx">
+      <DependentUpon>202103141215385_cart items.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
