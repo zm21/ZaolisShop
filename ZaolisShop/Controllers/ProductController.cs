@@ -1,4 +1,5 @@
-﻿using DAL.EF;
+﻿using BLL.Models;
+using DAL.EF;
 using DAL.Entities;
 using DAL.Interfaces;
 using DAL.Repositories;
@@ -64,5 +65,31 @@ namespace ZaolisShop.Controllers
                 return RedirectToAction("Index", "Home");
         }
 
+        [HttpGet]
+        public ActionResult Cart()
+        {
+            var user = unitOfWork.ApplicationUserRepository.Get(u => u.Email == User.Identity.Name)?.First();
+            var cart = unitOfWork.CartRepository.Get(c => c.UserAdditionalInfoId == user.Id)?.First();
+            if (cart != null)
+            {
+                List<CartItemDTO> cartItems = new List<CartItemDTO>();
+                foreach (var item in cart.CartItems)
+                {
+                    CartItemDTO cartItem = new CartItemDTO
+                    {
+                        Id = item.Id,
+                        ProductInfoId = item.ProductInfoId,
+                        Name = item.ProductInfo.Product.Name,
+                        Price = item.ProductInfo.Product.Price,
+                        Count = item.Count
+                    };
+
+                    cartItem.Image = item.ProductInfo.Images?.First()?.Name;
+                    cartItems.Add(cartItem);
+                }
+                return View(cartItems);
+            }
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
