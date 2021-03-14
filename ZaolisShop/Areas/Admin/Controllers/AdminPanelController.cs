@@ -291,7 +291,7 @@ namespace ZaolisShop.Areas.Admin.Controllers
                 Id = c.Id,
                 Email=c.Email,
                 PhoneNumber=c.PhoneNumber,
-                Username=c.UserName
+                FullName = c?.UserAdditionalInfo?.FirstName + " " + c?.UserAdditionalInfo?.LastName 
             });
             return View(data);
         }
