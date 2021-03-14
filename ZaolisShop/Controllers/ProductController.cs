@@ -31,6 +31,7 @@ namespace ZaolisShop.Controllers
             var viewPageProduct = new ProductPageDTO()
             {
                 Name = product.Name,
+                Id = product.Id,
                 Price = product.Price,
                 Description = product.Description
             };
@@ -92,7 +93,6 @@ namespace ZaolisShop.Controllers
         }
 
         [Authorize]
-        [HttpPost]
         public ActionResult AddToCart(int id, string color, string size)
         {
             var user = unitOfWork.ApplicationUserRepository.Get(u => u.Email == User.Identity.Name)?.First();

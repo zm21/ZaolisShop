@@ -46,34 +46,59 @@
             </div>
             <div>
                 <h5>Color</h5>
-                @{ var productColors = new List<string>();
-                    foreach (var item in Model.Colors)
-                    {
-
-                        if (!productColors.Contains(item))
+                <div class="radio-toolbar">
+                    @{ var productColors = new List<string>();
+                        foreach (var item in Model.Colors)
                         {
-                            productColors.Add(item);
-                            <button class="color-button-unchecked">@item</button>
+
+                            if (!productColors.Contains(item))
+                            {
+                                if (productColors.Count == 0)
+                                {
+                                    @Html.RadioButtonFor(m => m.SelectedColor, item, new {@id = "radio " + item,@checked = "checked"});
+                                    <label for="radio @item">@item</label>
+                                }
+                                else
+                                {
+                                @Html.RadioButtonFor(m => m.SelectedColor, item, new {@id = "radio " + item });
+                                <label for="radio @item">@item</label>
+                                }
+                                productColors.Add(item);
+                            }
                         }
                     }
-                }
+                </div>
             </div>
             <div>
                 <h5>Size</h5>
+                <div class="radio-toolbar">
+
                 @{ var productSizes = new List<string>();
                     foreach (var item in Model.Sizes)
                     {
 
                         if (!productSizes.Contains(item))
                         {
+                            if (productSizes.Count == 0)
+                            {
+                                @Html.RadioButtonFor(m => m.SelectedSize, item, new { @id = "radio " + item, @checked = "checked" });
+                                <label for="radio @item">@item</label>
+                            }
+                            else
+                            {
+                                @Html.RadioButtonFor(m => m.SelectedSize, item, new { @id = "radio " + item });
+                                <label for="radio @item">@item</label>
+                            }
                             productSizes.Add(item);
-                            <button class="color-button-unchecked">@item</button>
                         }
                     }
                 }
+                </div>
             </div>
             <div>
+                <a href="@Url.Action("AddToCart","Product",new { id=Model.Id, color = Model.SelectedColor, size = Model.SelectedSize })">
                 <button class="button-add-to-cart">ADD TO CART</button>
+                </a>
             </div>
             <hr style="border: 1px solid black;">
             <div>

@@ -34,7 +34,7 @@
         {
             <tr>
                 <td>
-                    <img src="~/Images/Products/@Html.DisplayFor(modelItem => item.Image)" />
+                    <img src="/Images/Products/@Html.DisplayFor(modelItem => item.Image)" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
@@ -46,8 +46,13 @@
                     @Html.DisplayFor(modelItem => item.Price)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Count)
-                </td>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.EditorFor(modelItem => item.Count, new { htmlAttributes = new { @class = "form-control" } })
+                    }
+                    </td>
             </tr>
         }
     </table>
