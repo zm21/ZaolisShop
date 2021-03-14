@@ -18,7 +18,7 @@ namespace BLL.CreateModels
         public decimal Price { get; set; }
 
         [Required]
-        [MaxLength(32, ErrorMessage = "The Description must be no longer than 1000 characters")]
+        [MaxLength(1000, ErrorMessage = "The Description must be no longer than 1000 characters")]
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
