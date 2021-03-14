@@ -122,16 +122,16 @@ namespace ZaolisShop.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult EditProduct(int id)
         {
-            var editProd = _context.Products.Select(s => new ProductDTO
+            var editProd = _context.Products.Select(s => new EditProductDTO
             {
                 Id = s.Id,
-                Category = s.Category.Name,
-                CategoryId = s.CategoryId,
+                CategoryId = s.CategoryId.ToString(),
                 Description = s.Description,
                 Name = s.Name,
                 Price = s.Price
             }).FirstOrDefault(s => s.Id == id);
-
+            editProd.Categories.AddRange(
+                unitOfWork.CategoryRepository.Get().Select(c => new SelectListItem { Text = c.Name, Value = c.Id.ToString() }));
             if (editProd != null)
             {
                 return View(editProd);
@@ -141,7 +141,7 @@ namespace ZaolisShop.Areas.Admin.Controllers
 
         }
         [HttpPost]
-        public ActionResult EditProduct(ProductDTO model)
+        public ActionResult EditProduct(EditProductDTO model)
         {
             var editProd = _context.Products.FirstOrDefault(t => t.Id == model.Id);
             if (editProd != null)
@@ -149,7 +149,7 @@ namespace ZaolisShop.Areas.Admin.Controllers
                 editProd.Price = model.Price;
                 editProd.Name = model.Name;
                 editProd.Description = model.Description;
-                editProd.CategoryId = model.CategoryId;
+                editProd.CategoryId = int.Parse(model.CategoryId);
                 _context.SaveChanges();
                 return RedirectToAction("ProductList", "AdminPanel");
             }

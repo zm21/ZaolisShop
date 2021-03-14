@@ -1,4 +1,4 @@
-﻿@model BLL.Models.ProductDTO
+﻿@model BLL.Models.EditProductDTO
 @Styles.Render("~/Content/ZaolisShop/ShoppingCard")
 
 @{
@@ -43,17 +43,12 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Category, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
                 @Html.LabelFor(model => model.CategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.CategoryId, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.DropDownListFor(model => model.CategoryId,
+                    Model.Categories,
+                   "Select category",
+                   new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
                 </div>
             </div>
